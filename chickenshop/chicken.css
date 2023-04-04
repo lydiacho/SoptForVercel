@@ -19,20 +19,24 @@ header {
     z-index: 1;
 }
 
-header > div {
+header > h1 {
     font-size: 2rem;
     text-shadow: 5px 5px 5px gray;
 }
 
-header img {
+#hamburger > img {
     width: 3rem;
-    color: white;
+}
+
+#hamburger:hover .right_nav {
+    display: flex;
 }
 
 main {
     display:flex;
 }
-nav {
+
+.left_nav {
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
@@ -47,13 +51,38 @@ nav {
 
 }
 
-nav .menu {
+.left_nav .menu {
     font-size: 1rem;
     background-color: white;
     border-radius: 10px;
     padding: 0.5rem;
     align-items: center;
     display: flex;
+}
+
+.left_nav .menu:hover {
+    background-color: rgb(148, 98, 50);
+    color:white;
+}
+
+.right_nav {
+    color: white;
+    font-size: 1.5rem;
+    padding: 2rem;
+    background-color: #ffeaaa;
+    width:10%;
+    height:100vh;
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.right_nav .menu:hover {
+    color:black;
 }
 
 .menu .checkbox {

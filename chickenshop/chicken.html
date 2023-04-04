@@ -10,13 +10,25 @@
 </head>
 <body>
     <header>
-        <div>맛있는 치킨 다 모인 상점</div>
-        <div><img src="./img/hamburger.png" alt="메뉴 아이콘"/></div>
+        <h1>맛있는 치킨 다 모인 상점</h1>
+        
+        <div id="hamburger">
+            <img src="./img/hamburger.png" alt="메뉴 아이콘"/>
+
+            <nav class="right_nav">
+                <div style="color:black; font-weight: bold; margin-bottom: 2rem;">메뉴</div>
+                <div class="menu">새 상품 추가</div>
+                <hr color="black" width="100%" size="0.5px"/>
+                <div class="menu">찜 목록</div>
+                <hr color="black" width="100%" size="0.5px"/>
+            </nav>
+        </div>
         
     </header>
 
+
     <main>
-        <nav>
+        <nav class="left_nav">
             <div style="font-weight: bold;">종류</div>
             <div class="menu">
                 <input class="checkbox" type="checkbox">
@@ -35,6 +47,8 @@
                 <span>교촌</span>
             </div>
         </nav>
+
+        
     
         <section id="card_section">
             <div class="item">
