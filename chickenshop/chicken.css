@@ -37,13 +37,14 @@ main {
 }
 
 .left_nav {
+    flex: none;
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 1rem;
     background-color: rgb(255, 209, 70);
-    width:25%;
+    width:200px;
     height:min-content;
     border-radius: 15px;
     margin:0.8rem;
@@ -70,7 +71,7 @@ main {
     font-size: 1.5rem;
     padding: 2rem;
     background-color: #ffeaaa;
-    width:10%;
+    width:10rem;
     height:100vh;
     position: absolute;
     top:0;
@@ -90,11 +91,12 @@ main {
 }
 
 #card_section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .item {
+    width:17rem;
     position: relative;
     display: flex;
     flex-direction: column;
