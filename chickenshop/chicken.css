@@ -1,1 +1,97 @@
 @import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 20px;
+    background-color: black;
+}
+
+header {
+    background-color: rgb(255,239,155);
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    top:0;
+    z-index: 1;
+}
+
+header > div {
+    font-size: 25px;
+}
+
+header img {
+    width: 40px;
+}
+
+main {
+    display:flex;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: red;
+    width:25%;
+    height:min-content;
+}
+
+nav .menu {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#card_section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+
+.item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.item_name {
+    
+}
+
+.item_tag_box {
+    display: flex;
+}
+
+.item_tag {
+    font-size: 13px;
+    color: gray;
+
+}
+
+.item_tag::before {
+    content:'#';
+}
+
+.item_img > img {
+    width:80%;
+}
+
+.item_like {
+    position: absolute;
+    bottom:0;
+    right:0;
+    padding:10px;
+}
+
+.item_like::before {
+    content: '🤍';
+}
