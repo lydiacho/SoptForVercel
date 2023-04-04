@@ -3,12 +3,12 @@
 
 body {
     font-family: 'Gowun Dodum', sans-serif;
-    font-size: 20px;
+    font-size: 1rem;
     background-color: black;
 }
 
 header {
-    background-color: rgb(255,239,155);
+    background-color: rgb(254, 229, 157);
     position: sticky;
     display: flex;
     justify-content: space-between;
@@ -16,10 +16,11 @@ header {
     padding: 30px;
     top:0;
     z-index: 1;
+    margin-bottom: 10px;
 }
 
 header > div {
-    font-size: 25px;
+    font-size: 1.8rem;
 }
 
 header img {
@@ -30,25 +31,34 @@ main {
     display:flex;
 }
 nav {
+    font-size: 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
-    background-color: red;
+    padding: 1rem;
+    background-color: rgb(255, 209, 70);
     width:25%;
     height:min-content;
+    border-radius: 15px;
+    margin:10px;
 }
 
 nav .menu {
+    font-size: 1rem;
     background-color: white;
     border-radius: 10px;
-    padding: 5px;
+    padding: 0.5rem;
+    align-items: center;
+    display: flex;
+}
+
+.menu .checkbox {
+    margin-right: 7px;
 }
 
 #card_section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    
 }
 
 .item {
