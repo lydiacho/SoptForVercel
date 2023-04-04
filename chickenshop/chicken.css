@@ -74,17 +74,21 @@ nav .menu {
 }
 
 .item_name {
+    font-weight: bold;
+    margin:0.5rem;
     
 }
 
 .item_tag_box {
-    display: flex;
+    width:70%;
+    height: 1rem;
+    overflow:hidden;
 }
 
 .item_tag {
     font-size: 13px;
     color: gray;
-
+    display: inline-block;
 }
 
 .item_tag::before {
@@ -104,4 +108,8 @@ nav .menu {
 
 .item_like::before {
     content: '🤍';
+}
+
+.item_like:hover::before {
+    content: '💙';
 }
