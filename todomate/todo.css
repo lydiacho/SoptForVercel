@@ -41,6 +41,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .count {
@@ -77,10 +78,15 @@ header {
 
 .title > img {
     width:1.3rem;
+    cursor: pointer;
 }
 
 input {
     display: none;
+}
+
+label {
+    cursor: pointer;
 }
 
 input ~ label::before {
@@ -117,6 +123,7 @@ footer {
     gap: 0.5rem;
     align-items: center;
     box-shadow: 7px 7px 5px gray;
+    cursor: pointer;
 }
 
 .btnimg {
