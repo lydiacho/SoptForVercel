@@ -95,6 +95,13 @@ main {
     flex-wrap: wrap;
 }
 
+@media (max-width: 852px) {
+    #card_section {
+        justify-content: center;
+    }
+}
+
+
 .item {
     width:17rem;
     position: relative;
