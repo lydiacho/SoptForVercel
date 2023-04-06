@@ -5,8 +5,8 @@
 <div align="center">
 <h1>🐵 숭숭의 잔디 심기 🌱</h1>
 
-|📅|💡|🔗|⬜️|
-|---|---|---|---|
-|1주차|기본과제|링크|✅|
-|1주차|심화과제|링크|✅|
-|1주차|생각과제|링크||
+|📅|💡|🔗|
+|---|---|---|
+|1주차|기본과제|[✅](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/1)
+|1주차|심화과제|[✅](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/2)
+|1주차|생각과제||
