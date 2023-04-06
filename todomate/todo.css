@@ -76,12 +76,19 @@ header {
     width:1.3rem;
 }
 
-.todoitem::before {
-    content: '🤍   ';
+input {
+    display: none;
 }
 
-.todoitem:hover::before {
-    content: '❤️‍🔥   ';
+input ~ label::before {
+    content: '◻️ ';
+}
+
+input:checked ~ label::before {
+    content: '☑️ ';
+}
+input:checked ~ label {
+    color: gray;
 }
 
 footer {
