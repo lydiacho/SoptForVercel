@@ -106,6 +106,12 @@ main {
     font-size: 1.5rem;
 }
 
+#right_nav_title {
+    color:black; 
+    font-weight: bold; 
+    margin-bottom: 2rem;
+}
+
 .right_nav .menu:hover {
     color:black;
 }
@@ -180,7 +186,7 @@ main {
     right:0;
 
     padding:1rem;
-    
+
     font-size:2rem;
 }
 
