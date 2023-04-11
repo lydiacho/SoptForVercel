@@ -1,6 +1,16 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
+/*
+CSS 순서 정리!
+1. 객체의 노출 여부와 표현 방식 (display, list style)
+2. 위치와 좌표 (position 등)
+3. 크기와 여백 (width,height,padding,margin)
+4. 윤곽과 배경 (border,background)
+5. 글자와 정렬 (color,font,text~)
+6. 내용 (content)
+*/
+
 body {
     font-family: 'Song Myung', serif;
     font-size: 1rem;
@@ -8,15 +18,19 @@ body {
 }
 
 header {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+
+    position: sticky;
     top:0;
     z-index: 1;
+
+    padding: 2rem;
+
+    background-color: rgb(0, 0, 0);
+
+    color: white;
 }
 
 header > h1 {
@@ -37,49 +51,59 @@ main {
 }
 
 .left_nav {
-    flex: none;
-    font-size: 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 1rem;
-    background-color: rgb(255, 209, 70);
+    flex: none;
+
     width:200px;
     height:min-content;
-    border-radius: 15px;
+    padding: 1rem;
     margin:0.8rem;
+
+    background-color: rgb(255, 209, 70);
+    border-radius: 15px;
     box-shadow: 7px 7px 5px rgb(148, 98, 50);
 
+    font-size: 1.3rem;
 }
 
 .left_nav .menu {
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+
+    padding: 0.5rem;
+
     background-color: white;
     border-radius: 10px;
-    padding: 0.5rem;
-    align-items: center;
-    display: flex;
+
+    font-size: 1rem;
 }
 
 .left_nav .menu:hover {
     background-color: rgb(148, 98, 50);
+
     color:white;
 }
 
 .right_nav {
-    color: white;
-    font-size: 1.5rem;
-    padding: 2rem;
-    background-color: #ffeaaa;
-    width:10rem;
-    height:100vh;
+    display: none;
+    flex-direction: column;
+    gap:1rem;
+
     position: absolute;
     top:0;
     right:0;
     z-index: 1;
-    display: none;
-    flex-direction: column;
-    gap:1rem;
+
+    width:10rem;
+    height:100vh;
+    padding: 2rem;
+
+    background-color: #ffeaaa;
+
+    color: white;
+    font-size: 1.5rem;
 }
 
 .right_nav .menu:hover {
@@ -103,36 +127,42 @@ main {
 
 
 .item {
-    width:17rem;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+
+    position: relative;
+
+    width:17rem;
+    margin: 0.8rem;
+
     background-color: white;
     border-radius: 15px;
-    margin: 0.8rem;
     box-shadow: 7px 7px 5px gray;
+
+    text-align: center;
 }
 
 .item_name {
+    margin:1rem;
+
     font-size: 1.3rem;
     font-weight: bold;
-    margin:1rem;
-    
 }
 
 .item_tag_box {
     width:70%;
     height: 1rem;
+
     overflow:hidden;
 }
 
 .item_tag {
+    display: inline-block;
+
     font-size: 0.8rem;
     color: gray;
-    display: inline-block;
 }
 
 .item_tag::before {
@@ -145,11 +175,13 @@ main {
 }
 
 .item_like {
-    font-size:2rem;
     position: absolute;
     bottom:0;
     right:0;
+
     padding:1rem;
+    
+    font-size:2rem;
 }
 
 .item_like::before {
