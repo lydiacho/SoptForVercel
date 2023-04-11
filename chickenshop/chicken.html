@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="chicken.css">
 </head>
 <body>
-    <header>
+    <header id="top_header">
         <h1>맛있는 치킨 다 모인 상점</h1>
         
         <div id="hamburger">
@@ -18,9 +18,9 @@
             <nav class="right_nav">
                 <div id="right_nav_title">메뉴</div>
                 <ul>
-                    <li class="menu"> 새 상품 추가 </li>
+                    <li class="right_nav_menu"> 새 상품 추가 </li>
                     <hr color="black" width="100%" size="0.5px"/>
-                    <li class="menu">찜 목록</li>
+                    <li class="right_nav_menu">찜 목록</li>
                     <hr color="black" width="100%" size="0.5px"/>
                 </ul>
             </nav>
@@ -34,20 +34,20 @@
             <header>종류</header>
             <ul>
                 <li class="menu">
-                    <input class="checkbox" type="checkbox">
-                    <span>전체</span>
+                    <input type="checkbox" id="all_check">
+                    <label for="all_check">전체</label>
                 </li>
                 <li class="menu">
-                    <input class="checkbox" type="checkbox">
-                    <span>BHC</span>
+                    <input type="checkbox">
+                    <label for="all_check">BHC</label>
                 </li>
                 <li class="menu">
-                    <input class="checkbox" type="checkbox">
-                    <span>처갓집</span>
+                    <input type="checkbox">
+                    <label for="all_check">처갓집</label>
                 </li>
                 <li class="menu">
-                    <input class="checkbox" type="checkbox">
-                    <span>교촌</span>
+                    <input type="checkbox">
+                    <label for="all_check">교촌</label>
                 </li>
             </ul>
         </nav>
