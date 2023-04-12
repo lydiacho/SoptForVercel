@@ -1,0 +1,209 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+/*
+CSS 순서 정리!
+1. 객체의 노출 여부와 표현 방식 (display, list style)
+2. 위치와 좌표 (position 등)
+3. 크기와 여백 (width,height,padding,margin)
+4. 윤곽과 배경 (border,background)
+5. 글자와 정렬 (color,font,text~)
+6. 내용 (content)
+*/
+
+body {
+    font-family: 'Song Myung', serif;
+    font-size: 1rem;
+    background-color: black;
+}
+
+#top_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top:0;
+    z-index: 1;
+
+    padding: 2rem;
+
+    background-color: rgb(0, 0, 0);
+
+    color: white;
+}
+
+#top_header > h1 {
+    font-size: 2rem;
+    text-shadow: 5px 5px 5px gray;
+}
+
+#hamburger > img {
+    width: 3rem;
+}
+
+#hamburger:hover .right_nav {
+    display: flex;
+}
+
+main {
+    display:flex;
+}
+
+.left_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: none;
+
+    width:200px;
+    height:min-content;
+    padding: 1rem;
+    margin:0.8rem;
+
+    background-color: rgb(255, 209, 70);
+    border-radius: 15px;
+    box-shadow: 7px 7px 5px rgb(148, 98, 50);
+
+    font-size: 1.3rem;
+}
+
+.left_nav .menu {
+    display: flex;
+    align-items: center;
+
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    background-color: white;
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+.left_nav .menu:hover {
+    background-color: rgb(148, 98, 50);
+
+    color:white;
+}
+
+.left_nav > header {
+    font-weight: bold;
+}
+
+.right_nav {
+    display: none;
+    flex-direction: column;
+    gap:1rem;
+
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+
+    width:10rem;
+    height:100vh;
+    padding: 2rem;
+
+    background-color: #ffeaaa;
+
+    color: white;
+    font-size: 1.5rem;
+}
+
+#right_nav_title {
+    color:black; 
+    font-weight: bold; 
+    margin-bottom: 1rem;
+}
+
+.right_nav_menu {
+    margin-bottom:1rem;
+    margin-top:1rem;
+}
+
+.right_nav_menu:hover {
+    color:black;
+}
+
+.menu [type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+#card_section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 852px) {
+    #card_section {
+        justify-content: center;
+    }
+}
+
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width:17rem;
+    margin: 0.8rem;
+
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 7px 7px 5px gray;
+
+    text-align: center;
+}
+
+.item_name {
+    margin:1rem;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.item_tag_box {
+    width:70%;
+    height: 1rem;
+
+    overflow:hidden;
+}
+
+.item_tag {
+    display: inline-block;
+
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.item_tag::before {
+    content:'#';
+}
+
+.item_img > img {
+    width:80%;
+    margin-bottom: 2rem;
+}
+
+.item_like {
+    position: absolute;
+    bottom:0;
+    right:0;
+
+    padding:1rem;
+
+    font-size:2rem;
+}
+
+.item_like::before {
+    content: '🤍';
+}
+
+.item_like:hover::before {
+    content: '❤️‍🔥';
+}
