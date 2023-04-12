@@ -60,6 +60,10 @@ header {
     font-size:0.8rem;
 }
 
+#selected_date {
+    color:rgb(204, 153, 0);
+}
+
 #todolist {
     display: flex;
     flex-flow: column wrap;
@@ -88,6 +92,19 @@ header {
     box-shadow: 5px 5px 5px gray;
 
     color: black;
+}
+
+.todobox:nth-child(1)>.category_title {
+    background-color: rgb(230, 243, 254);
+}
+.todobox:nth-child(2)>.category_title {
+    background-color: rgb(203, 231, 255);
+}
+.todobox:nth-child(3)>.category_title {
+    background-color: rgb(164, 213, 255);
+}
+.todobox:nth-child(4)>.category_title {
+    background-color: rgb(152, 207, 255);
 }
 
 .category_title > img {
