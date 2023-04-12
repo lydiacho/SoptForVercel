@@ -107,6 +107,10 @@ header {
     background-color: rgb(152, 207, 255);
 }
 
+.category_title > h1 {
+    font-size: 1.2rem;
+}
+
 .category_title > img {
     width:1.3rem;
 
