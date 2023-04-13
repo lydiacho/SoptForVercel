@@ -185,8 +185,8 @@ main {
     content:'#';
 }
 
-.item_img > img {
-    width:80%;
+.item > img {
+    width:15rem;
     margin-bottom: 2rem;
 }
 
