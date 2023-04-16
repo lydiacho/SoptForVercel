@@ -116,3 +116,38 @@ for (const oneData of menuData) {
     const oneItem = createItem(oneData);
     document.getElementById("card_section").appendChild(oneItem);
 }
+
+
+
+//----------------------------
+//html로 메뉴 태그만들어놨고, 이제 그 디자인을 checkbox 이벤트 리슨에 따라 추가하고 삭제하는 로직 구현해야 함 
+// 메뉴 태그 추가 
+function createMenuTag() {
+    const menuTag = document.createElement('li');
+    const menuTagName = document.createElement('p');
+    const menuTagBtn = document.createElement('button');
+
+    menuTag.className = "menu_tag";
+    menuTagName.textContent = "양념";   // target에서 받아오기 
+    menuTagBtn = textContent = "X";
+    menuTag.appendChild(menuTagName);
+    menuTag.appendChild(menuTagBtn);
+
+    return menuTag;
+}
+
+// 체크박스 누르면 메뉴 태그 추가 
+let tagContainer = [];
+const menuBtn = document.querySelector('.menu_check');
+menuBtn.onclick = function(e) {
+    alert(e.target.textContent);
+    tagContainer.push(e.target.textContent);
+}
+
+
+// 체크해서 추가된 태그를 늘 띄우는 코드 
+
+// 왼쪽 메뉴 체크
+
+// 태그의 X 버튼 체크 
+

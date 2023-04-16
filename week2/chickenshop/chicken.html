@@ -36,26 +36,42 @@
             <ul>
                 <li class="menu">
                     <input type="checkbox" id="all_check">
-                    <label for="all_check">전체</label>
+                    <label for="all_check" class="menu_check">전체</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">양념</label>
+                    <input type="checkbox" id="yangnyeom_check">
+                    <label for="yangnyeom_check" class="menu_check">양념</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">치킨킹</label>
+                    <input type="checkbox" id="king_check">
+                    <label for="king_check" class="menu_check">치킨킹</label>
                 </li>
                 <li class="menu">
-                    <input type="checkbox">
-                    <label for="all_check">구이</label>
+                    <input type="checkbox" id="roast_check">
+                    <label for="roast_check" class="menu_check">구이</label>
                 </li>
             </ul>
         </nav>
 
-        
-    
-        <section id="card_section"></section>
+        <section>
+            <ul id="card_tags">
+                <li class="menu_tag">
+                    <p>양념</p>
+                    <button>X</button>
+                </li>
+                <li class="menu_tag">
+                    <p>전체</p>
+                    <button>X</button>
+                </li>
+                <li class="menu_tag">
+                    <p>치킨킹</p>
+                    <button>X</button>
+                </li>
+            </ul>
+
+            <article id="card_section"></article>
+
+        </section>
     </main>
 
 </body>
