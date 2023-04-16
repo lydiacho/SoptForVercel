@@ -31,7 +31,7 @@ const menuData = [
     tags: [
         "고추간장",
         "맵짠",
-        "주인장최애임",
+        "주인장최애",
         "사랑해요맛초킹",
         "맛초킹먹으러갈사람"
     ],
@@ -90,15 +90,20 @@ function createItem(data) {
     
     const item = document.createElement('article');
     const itemName = document.createElement('header');
+    const itemTagContainer = document.createElement('p');
     const itemTagBox = document.createElement('ul');
+    const itemTagPlus = document.createElement('i');
     const itemImg = document.createElement('img');
     const itemLike = document.createElement('i');
+    const itemModal = document.createElement('section');
+    const itemModalClose = document.createElement('i');
 
     item.className = "item";
 
     itemName.className = "item_name";
     itemName.textContent = data.name;
 
+    itemTagContainer.className = "item_tag_container";
     itemTagBox.className = "item_tag_box";
     for (const tag of data.tags) {
         const itemTag = document.createElement('li');
@@ -106,16 +111,42 @@ function createItem(data) {
         itemTag.textContent = tag;
         itemTagBox.appendChild(itemTag);
     }
+    itemTagContainer.appendChild(itemTagBox);
+
+    itemTagPlus.className = "item_tag_plus";
+    itemTagPlus.textContent = "⊕";
+    // 태그 전체보기 모달 
+    itemTagPlus.addEventListener('click', function() {
+        document.getElementById(`${data.name}_modal`).style.display = 'flex';
+    });
+    itemTagContainer.appendChild(itemTagPlus);
 
     itemImg.src = data.img;
     itemImg.alt = `${data.name} 사진`;
 
     itemLike.className = "item_like";
 
+    itemModal.className = "item_modal";
+    itemModal.id = `${data.name}_modal`;
+    for (const tag of data.tags) {
+        const itemModalTag = document.createElement('p');
+        itemModalTag.textContent = `#${tag}`;
+        itemModal.appendChild(itemModalTag);
+    }
+    itemModalClose.className = "item_modal_close";
+    itemModalClose.textContent = "x";
+    // 태그 끄기 
+    itemModalClose.addEventListener('click', function() {
+        document.getElementById(`${data.name}_modal`).style.display = 'none';
+    });
+    itemModal.appendChild(itemModalClose);
+    
+
     item.appendChild(itemName);
-    item.appendChild(itemTagBox);
+    item.appendChild(itemTagContainer);
     item.appendChild(itemImg);
     item.appendChild(itemLike);
+    item.appendChild(itemModal);
 
     return item;
 }
@@ -123,6 +154,7 @@ function createItem(data) {
 
 //화면 띄우는 함수
 function refresh() {
+    // 심화과제 시 애니메이션 여기에 추가하기 
     document.getElementById("card_section").innerHTML = "";
     for (const oneData of menuData) {
         if (document.getElementById("전체").checked || document.getElementById(oneData.value).checked) {
@@ -151,6 +183,7 @@ function createMenuTag(tagValue) {
         const deleteMenu = document.getElementById(e.target.parentNode.id);
         deleteMenu.parentNode.removeChild(deleteMenu);
         document.getElementById(tagValue).checked = false;  
+        refresh();
     })
 
     return menuTag;
@@ -170,5 +203,7 @@ for (const checkTag of checkTags) {
         }
     });
 }
+
+
 
 refresh();
