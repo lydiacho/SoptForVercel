@@ -6,14 +6,16 @@ const menuData = [
         "바삭함",
         "고소함"
     ],
-    img : "./img/후라이드.png" 
+    img : "./img/후라이드.png",
+    value : ""
 },
 {
     name: "양념",
     tags: [
         "맵단맵단"
     ],
-    img : "./img/양념.png" 
+    img : "./img/양념.png" ,
+    value : "양념"
 },
 {
     name: "뿌링클",
@@ -21,7 +23,8 @@ const menuData = [
         "뿌링뿌링",
         "치즈가루"
     ],
-    img : "./img/뿌링클.png" 
+    img : "./img/뿌링클.png",
+    value : "양념"
 },
 {
     name: "맛초킹",
@@ -32,7 +35,8 @@ const menuData = [
         "사랑해요맛초킹",
         "맛초킹먹으러갈사람"
     ],
-    img : "./img/맛초킹.png" 
+    img : "./img/맛초킹.png" ,
+    value : "치킨킹"
 },
 {
     name: "레드킹",
@@ -40,7 +44,8 @@ const menuData = [
         "화끈매콤",
         "마늘토핑"
     ],
-    img : "./img/레드킹.png" 
+    img : "./img/레드킹.png",
+    value : "치킨킹"
 },
 {
     name: "레드킹 폭립",
@@ -48,7 +53,8 @@ const menuData = [
         "폭립",
         "신메뉴"
     ],
-    img : "./img/레드킹폭립.png" 
+    img : "./img/레드킹폭립.png" ,
+    value : "치킨킹"
 },
 {
     name: "직화구이",
@@ -56,7 +62,8 @@ const menuData = [
         "구움",
         "고추장"
     ],
-    img : "./img/직화구이.png" 
+    img : "./img/직화구이.png",
+    value : "구이"
 },
 {
     name: "치퐁당",
@@ -65,14 +72,16 @@ const menuData = [
         "마늘",
         "후레이크"
     ],
-    img : "./img/치퐁당.png" 
+    img : "./img/치퐁당.png",
+    value : "양념"
 },
 {
     name: "포테킹",
     tags: [
         "감자팡팡"
     ],
-    img : "./img/포테킹.png" 
+    img : "./img/포테킹.png",
+    value : "치킨킹"
 }
 ];
 
