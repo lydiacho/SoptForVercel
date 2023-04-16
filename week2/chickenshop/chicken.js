@@ -134,12 +134,16 @@ function createMenuTag(tagValue) {
     menuTag.appendChild(menuTagName);
     menuTag.appendChild(menuTagBtn);
 
+    menuTagBtn.addEventListener('click', function(e) {      
+        const deleteMenu = document.getElementById(e.target.parentNode.id);
+        deleteMenu.parentNode.removeChild(deleteMenu);
+        document.getElementById(tagValue).checked = false;  
+    })
+
     return menuTag;
 }
 
-// 체크박스 체크시 메뉴 태그 추가, 체크해제시 메뉴 태그 삭제
-
-let checkTags = document.querySelectorAll('input[type="checkbox"]');
+const checkTags = document.querySelectorAll('input[type="checkbox"]');
 for (const checkTag of checkTags) {
     checkTag.addEventListener('change', function(e) {
         if (e.target.checked) {
