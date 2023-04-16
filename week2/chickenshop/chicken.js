@@ -7,7 +7,7 @@ const menuData = [
         "고소함"
     ],
     img : "./img/후라이드.png",
-    value : ""
+    value : "전체"
 },
 {
     name: "양념",
@@ -121,14 +121,18 @@ function createItem(data) {
 }
 
 
-for (const oneData of menuData) {
-    const oneItem = createItem(oneData);
-    document.getElementById("card_section").appendChild(oneItem);
+//화면 띄우는 함수
+function refresh() {
+    document.getElementById("card_section").innerHTML = "";
+    for (const oneData of menuData) {
+        if (document.getElementById("전체").checked || document.getElementById(oneData.value).checked) {
+            const oneItem = createItem(oneData);
+            document.getElementById("card_section").appendChild(oneItem);
+        }
+    }
 }
 
 
-
-//----------------------------
 // 메뉴 태그 추가 
 function createMenuTag(tagValue) {
     const menuTag = document.createElement('li');
@@ -157,10 +161,14 @@ for (const checkTag of checkTags) {
     checkTag.addEventListener('change', function(e) {
         if (e.target.checked) {
             document.getElementById("card_tags").appendChild(createMenuTag(e.target.id));
+                refresh();
         }
         else {
             const deleteMenu = document.getElementById(`${e.target.id}_checked`);
             deleteMenu.parentNode.removeChild(deleteMenu);
+            refresh();
         }
     });
 }
+
+refresh();
