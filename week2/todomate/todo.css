@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 
 body {
-    width:450px;
+    width:400px;
 
     background-color:black;
 
@@ -173,4 +173,54 @@ footer {
 
 .btntext {
     color: black;
+}
+
+#modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 450px;
+    height: 100%;
+    
+    background: rgba(0, 0, 0, 0.624);
+    border-radius: 10px;
+    
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#modal_window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    width: 40%;
+    height: 15%;
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0.7rem;
+
+    color: black;
+}
+
+input[type="text"] {
+    display: block;
+
+    width: 70%;
+    margin-top: 0.5rem;
+}
+
+#modal_btn {
+    margin-top: 0.5rem;
+    padding : 0.5rem;
+
+    border-radius: 0.5rem;
 }

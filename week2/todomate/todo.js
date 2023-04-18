@@ -31,24 +31,6 @@ const todoData = [
 
 ];
 
-/*
-<article class="todobox">
-    <header class="category_title">
-        <h1>TODO</h1>
-        <img src="./img/plus.png" alt="할일 추가 버튼"/>
-    </header>
-    <form class="todoitem">
-        <input type="checkbox" id="category2_task1">
-        <label for="category2_task1">일본여행 블로그 쓰기</label>
-    </form>
-    <form class="todoitem">
-        <input type="checkbox" id="category2_task2">
-        <label for="category2_task2">오늘자 일기 쓰기</label>
-    </form>
-</article>
-*/
-
-
 let completeCount = 0;
 
 function refreshCal() {
@@ -64,7 +46,6 @@ function refreshCal() {
 
 
 function createTodo(index, todo, todoindex) {
-    // 투두 아이템 html 생성 함수
     const todoitem = document.createElement('form');
     const todoCheckbox = document.createElement('input');
     const todoLabel = document.createElement('label');
@@ -94,14 +75,12 @@ function createTodo(index, todo, todoindex) {
 }
 
 function plusTodo(category, todo) { //category : article 태그의 id, todo : 추가하고자하는 할일 text
-    // 카테고리에 todoitem을 추가해주는 함수
     const todobox = document.getElementById(category);
     const index = category[category.length-1]; //category가 몇번째 todoData에서 몇번째 index인지 
     todobox.appendChild(createTodo(index,todo, todoData[index-1].todo.length+1));
 
-    // todoData에도 추가 
     todoData[index-1].todo.push(todo);
-    refreshCal();   // 캘린더 숫자 새로고침
+    refreshCal();  
 }
 
 function refreshTodo() {
@@ -113,6 +92,19 @@ function refreshTodo() {
     }
 }
 
-refreshTodo();
+const plusBtns = document.getElementsByClassName('plus_btn');
+for (const plusBtn of plusBtns) {
+    plusBtn.addEventListener('click', function(e){
+        document.getElementById('modal').style.display = 'flex';
 
+        const modalBtn = document.getElementById('modal_btn');
+        modalBtn.addEventListener('click', function() {
+            plusTodo(e.target.parentNode.parentNode.id, document.getElementById('add_todo').value);
+            document.getElementById('modal').style.display = 'none';
+        });
+
+    });
+}
+
+refreshTodo();
 
