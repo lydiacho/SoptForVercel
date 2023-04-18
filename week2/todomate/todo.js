@@ -59,28 +59,24 @@ function refreshCal() {
     }
 
     selectedLeft.textContent = leftCount;
-    
 }
 
+refreshCal();
 
-function createTodo(index, todo) {
+function createTodo(index, todo, todoindex) {
     // 투두 아이템 html 생성 함수
     const todoitem = document.createElement('form');
     const todoCheckbox = document.createElement('input');
     const todoLabel = document.createElement('label');
 
     todoCheckbox.type = "checkbox";
-    todoCheckbox.id = `category${index}_task${todoData[index].length}`;
-    todoLabel.for = `category${index}_task${todoData[index].length}}`;
+    todoCheckbox.id = `category${index}_task${todoindex}`; 
+    todoLabel.htmlFor = `category${index}_task${todoindex}`;
     todoLabel.textContent = todo;
 
     todoitem.className = "todoitem";
     todoitem.appendChild(todoCheckbox);
     todoitem.appendChild(todoLabel);
-
-    // todoData에도 추가 
-    todoData[index].todo.push(todo);
-    refreshCal();   // 캘린더 숫자 새로고침
 
     return todoitem;
 
@@ -89,6 +85,22 @@ function createTodo(index, todo) {
 function plusTodo(category, todo) { //category : article 태그의 id, todo : 추가하고자하는 할일 text
     // 카테고리에 todoitem을 추가해주는 함수
     const todobox = document.getElementById(category);
-    let index = //category가 몇번째 todoData에서 몇번째 index인지 
-    todobox.appendChild(createTodo(index,todo));
+    const index = category[category.length-1]; //category가 몇번째 todoData에서 몇번째 index인지 
+    todobox.appendChild(createTodo(index,todo, todoData[index-1].todo.length+1));
+
+    // todoData에도 추가 
+    todoData[index-1].todo.push(todo);
+    refreshCal();   // 캘린더 숫자 새로고침
 }
+
+function refreshTodo() {
+    for (let i = 1; i<=todoData.length; i++) {
+        for (let j = 0; j < todoData[i-1].todo.length; j++) {
+            const oneTodo = createTodo(i, todoData[i-1].todo[j], j+1);
+            document.getElementById(`category${i}`).appendChild(oneTodo);
+        }
+    }
+}
+
+refreshTodo();
+
