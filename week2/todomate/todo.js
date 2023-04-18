@@ -49,8 +49,9 @@ const todoData = [
 */
 
 
+let completeCount = 0;
+
 function refreshCal() {
-    // 캘린더 숫자 새로고침 함수 -> todo Data를 보고 다시 숫자 입력하기 
     const selectedLeft = document.getElementById('selected_left');
     let leftCount = 0;
 
@@ -58,10 +59,9 @@ function refreshCal() {
         leftCount += item.todo.length;
     }
 
-    selectedLeft.textContent = leftCount;
+    selectedLeft.textContent = leftCount - completeCount;
 }
 
-refreshCal();
 
 function createTodo(index, todo, todoindex) {
     // 투두 아이템 html 생성 함수
@@ -71,6 +71,17 @@ function createTodo(index, todo, todoindex) {
 
     todoCheckbox.type = "checkbox";
     todoCheckbox.id = `category${index}_task${todoindex}`; 
+    todoCheckbox.addEventListener('change', function(e) {
+        const checkId = e.target.id;
+        if (e.target.checked) {
+            completeCount++;
+            refreshCal();
+        } else {
+            completeCount--;
+            refreshCal();
+        }
+    });
+
     todoLabel.htmlFor = `category${index}_task${todoindex}`;
     todoLabel.textContent = todo;
 
@@ -103,4 +114,5 @@ function refreshTodo() {
 }
 
 refreshTodo();
+
 
