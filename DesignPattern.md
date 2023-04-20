@@ -18,7 +18,8 @@
 
 ## 3. Atomic
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d987c6c4-fa2f-4d49-bd94-0c7c92ef45c8/Untitled.png)
+<img src="https://user-images.githubusercontent.com/81505421/233434709-eed8e717-15cc-42ca-ad06-1eed30dc50f0.png"/>
+
 
 - 가장 작은 컴포넌트를 가장 작은 단위인 Atom으로 삼고, 아톰으로 이루어진 조합으로 상위 컴포넌트가 생기는 패턴이다
 - 아톰부터 상위 컴포넌트로 올라가는 단계는 Atom → Molecules → Organisms → 템플릿 → 페이지 순
