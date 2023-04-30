@@ -154,6 +154,7 @@ ${reset}
     font-family: 'KOTRAHOPE';
     box-sizing: border-box;
 }
+    
 `;
 
 export default GlobalStyle;
