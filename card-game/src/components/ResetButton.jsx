@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function ResetButton({setAll}) {
+export default function ResetButton({setCorrect}) {
   return (
-    <ResetBtn>RESET</ResetBtn>
+    <ResetBtn onClick={()=>setCorrect(0)}>RESET</ResetBtn>
   )
 }
 

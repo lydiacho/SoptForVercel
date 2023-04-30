@@ -7,13 +7,13 @@ import GlobalStyle from "./styles/globalStyle";
 import theme from "./styles/theme";
 
 function App() {
-  const [all, setAll] = useState(0);
+  const [correct, setCorrect] = useState(5);  // 임시로 초기값 5로 해둠 
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <FindMonkey all={all} setAll={setAll} />
-      <ResetButton setAll={setAll}/>
+      <FindMonkey correct={correct} setCorrect={setCorrect} />
+      <ResetButton setCorrect={setCorrect}/>
     </ThemeProvider>
   )
 }

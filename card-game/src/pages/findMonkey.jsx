@@ -4,8 +4,8 @@ import { useState } from 'react';
 import CardSectionLayout from '../components/CardSectionLayout';
 import HeaderLayout from '../components/HeaderLayout';
 
-export default function FindMonkey({all, setAll}) {
-    const [correct, setCorrect] = useState(0);
+export default function FindMonkey({correct, setCorrect}) {
+    const [all, setAll] = useState(0);
 
   return (
     <MainBox>
