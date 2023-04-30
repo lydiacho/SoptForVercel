@@ -12,10 +12,6 @@ export default function HeaderLayout() {
 const GameHeader = styled.header`
   text-align: center;
 
-  position: absolute;
-  top: 0;
-  left: 0;
-
   width: 100%;
   padding:4rem;
 
