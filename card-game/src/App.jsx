@@ -1,15 +1,18 @@
-//import { useState } from 'react'
 import './App.css'
+import styled, { ThemeProvider } from "styled-components";
+import FindMonkey from './pages/FindMonkey';
+import GlobalStyle from "./styles/globalStyle";
+import theme from "./styles/theme";
 
 function App() {
-  //const [count, setCount] = useState(0)
-
   return (
-    <>
-      <header>🐒숭숭이를 맞춰주세요🐒</header>
-      <main>이곳은 메인입니다</main>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <FindMonkey />
+    </ThemeProvider>
   )
 }
 
 export default App
+
+
