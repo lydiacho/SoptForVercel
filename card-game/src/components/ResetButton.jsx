@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function ResetButton() {
+export default function ResetButton({setAll}) {
   return (
     <ResetBtn>RESET</ResetBtn>
   )
