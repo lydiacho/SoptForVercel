@@ -57,15 +57,15 @@ const ButtonBox = styled.article`
   display: flex;
   gap: 1rem;
 
-  margin: 2rem;
+  margin-top: 2rem;
 `
 
 const CardSection = styled.ul`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 30rem);
+    grid-template-rows: repeat(3, 25rem);
     gap: 2.5rem;
 
     width: 100%;
-    padding: 3rem 5rem;
+    padding: 3rem 10rem;
 `

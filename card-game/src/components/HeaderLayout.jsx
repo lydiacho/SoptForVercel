@@ -13,12 +13,12 @@ const GameHeader = styled.header`
   text-align: center;
 
   width: 100%;
-  padding:4rem;
+  padding:2rem;
 
   background-color: ${({ theme }) => theme.colors.skyBlue};
 
   color : ${({ theme }) => theme.colors.black};
-  font-size: 8rem;
+  font-size: 6rem;
 
 `;
 
