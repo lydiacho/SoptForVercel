@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from '../components/Button';
+import Card from '../components/Card';
 
 
 export default function CardSectionLayout() {
@@ -11,7 +12,8 @@ export default function CardSectionLayout() {
         <Button difficulty="Hard"/>
       </ButtonBox>
       <CardSection>
-        pppp
+        <Card/> 
+        {/* 여기 map으로 배열수만큼 넣기 */}
       </CardSection>
     </MainSection>
   )
@@ -35,6 +37,12 @@ const ButtonBox = styled.article`
   margin: 2rem;
 `
 
-const CardSection = styled.section`
-  
+const CardSection = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(auto-fill, 30rem);
+    gap: 2rem;
+
+    width: 100%;
+    padding: 0rem 5rem;
 `
