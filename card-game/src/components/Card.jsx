@@ -16,6 +16,6 @@ const OneCard = styled.li`
 `
 
 const CardImg = styled.img`
-  width:20rem;
+  width:100%;
   height:100%
 `
