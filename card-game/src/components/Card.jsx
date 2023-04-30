@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 
-export default function Card() {
+export default function Card({src}) {
   return (
     <OneCard>
-      <CardImg src="public/img/숭1.png"/>
+      <CardImg src={src}/>
     </OneCard>
   )
 }

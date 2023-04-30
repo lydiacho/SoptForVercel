@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import { monkeyData } from '../constant/cardData';
 
 
 export default function CardSectionLayout() {
+  const monkeyList = monkeyData.map((monkey) => <Card key={monkey.id} src={monkey.src}/>);
+  
   return (
     <MainSection>
       <ButtonBox>
@@ -12,8 +15,7 @@ export default function CardSectionLayout() {
         <Button difficulty="Hard"/>
       </ButtonBox>
       <CardSection>
-        <Card/> 
-        {/* 여기 map으로 배열수만큼 넣기 */}
+        {monkeyList}
       </CardSection>
     </MainSection>
   )
