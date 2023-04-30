@@ -5,12 +5,12 @@ import CardSectionLayout from '../components/CardSectionLayout';
 import HeaderLayout from '../components/HeaderLayout';
 
 export default function FindMonkey({correct, setCorrect}) {
-    const [all, setAll] = useState(0);
+    const [all, setAll] = useState(7);
 
   return (
     <MainBox>
-        <HeaderLayout/>
-        <CardSectionLayout/>
+        <HeaderLayout correct={correct} all={all}/>
+        <CardSectionLayout all={all}/>
     </MainBox>
   )
 }

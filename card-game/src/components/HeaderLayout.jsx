@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export default function HeaderLayout() {
+export default function HeaderLayout({correct,all}) {
   return (
     <GameHeader>
       <h1>🐒숭이를 찾아라!🐒</h1>
-      <GameCount>0/5</GameCount>
+      <GameCount>{correct}/{all}</GameCount>
     </GameHeader>
   )
 }
