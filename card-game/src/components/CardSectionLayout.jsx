@@ -8,25 +8,32 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-//카드 배열하는 함수
-function arrayCard(arr) {
-  let tempArray = arr.slice(0,7); //끝나는 인덱스는 difficulty에 따라 달라짐
-
-  tempArray = [...tempArray,...tempArray];
-  shuffle(tempArray);
-
-  return tempArray;
-}
-
-export default function CardSectionLayout() {
+export default function CardSectionLayout({all, setAll}) {
   const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} src={monkey.src}/>);
+
+  //카드 배열하는 함수
+  function arrayCard(arr) {
+    let tempArray = arr.slice(0,all); //끝나는 인덱스는 difficulty에 따라 달라짐
+
+    for (let i=0; i<all; i++) {
+      tempArray.push({
+        id: tempArray[i].id+10,
+        src: tempArray[i].src
+      })
+    }
+
+    //tempArray = [...tempArray,...tempArray];
+    shuffle(tempArray);
+
+    return tempArray;
+  }
   
   return (
     <MainSection>
       <ButtonBox>
-        <Button difficulty="Easy"/>
-        <Button difficulty="Normal"/>
-        <Button difficulty="Hard"/>
+        <Button difficulty="Easy" setAll={setAll}/>
+        <Button difficulty="Normal" setAll={setAll}/>
+        <Button difficulty="Hard" setAll={setAll}/>
       </ButtonBox>
       <CardSection>
         {monkeyList}
