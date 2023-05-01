@@ -7,6 +7,7 @@ let flippedList = [];   // 완성배열
 
 export default function Card({idx,src, correct, setCorrect, all}) {
 
+  // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
     for (const item of flippedList) {
       item.classList.remove('flipped');
