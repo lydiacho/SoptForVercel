@@ -13,8 +13,10 @@ export default function CardSectionLayout({all, setAll}) {
 
   //카드 배열하는 함수
   function arrayCard(arr) {
-    let tempArray = arr.slice(0,all); //끝나는 인덱스는 difficulty에 따라 달라짐
+    let tempArray = arr.slice(0,all);
 
+    //tempArray = [...tempArray,...tempArray];
+    //mapping 시 key를 고유하게 부여하기 위해 배열 합치는 과정에서 id를 다르게 설정
     for (let i=0; i<all; i++) {
       tempArray.push({
         id: tempArray[i].id+10,
@@ -22,7 +24,6 @@ export default function CardSectionLayout({all, setAll}) {
       })
     }
 
-    //tempArray = [...tempArray,...tempArray];
     shuffle(tempArray);
 
     return tempArray;
@@ -63,7 +64,7 @@ const ButtonBox = styled.article`
 const CardSection = styled.ul`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 25rem);
+    grid-template-rows: repeat(4, 23rem);
     gap: 2.5rem;
 
     width: 100%;
