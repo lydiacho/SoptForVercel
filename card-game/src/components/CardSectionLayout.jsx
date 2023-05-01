@@ -11,7 +11,7 @@ function shuffle(array) {
 
 export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
 
-  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all}/>);
+  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect}/>);
 
   //카드 배열하는 함수
   function arrayCard(arr) {
