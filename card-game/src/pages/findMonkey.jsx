@@ -10,7 +10,7 @@ export default function FindMonkey({correct, setCorrect}) {
   return (
     <MainBox>
         <HeaderLayout correct={correct} all={all}/>
-        <CardSectionLayout all={all} setAll={setAll}/>
+        <CardSectionLayout all={all} setAll={setAll} correct={correct} setCorrect={setCorrect}/>
     </MainBox>
   )
 }

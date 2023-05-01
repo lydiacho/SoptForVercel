@@ -7,7 +7,7 @@ import GlobalStyle from "./styles/globalStyle";
 import theme from "./styles/theme";
 
 function App() {
-  const [correct, setCorrect] = useState(999);  // 임시로 초기값 999로 해둠 
+  const [correct, setCorrect] = useState(0); 
 
   return (
     <ThemeProvider theme={theme}>

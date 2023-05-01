@@ -1,18 +1,53 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 
-export default function Card({src}) {
-  const [flip,setFlip] = useState(false);
+let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
+let flippingList = [];  // 뒤집배열 
+let flippedList = [];   // 완성배열
+
+export default function Card({idx,src, correct, setCorrect}) {
 
   // 카드 뒤집는 함수 
-  const flipCard = () => {
-    setFlip(true);
+  const flipCard = (e) => {
+    if (!flag) {return}                                     //Flag가 false면 진행 X
+
+    let card = e.currentTarget;                             // one카드 컴포넌트 
+    card.classList.add('flipped');                          //뒤집기 
+    flippingList.push(card);                                // 뒤집배열에 push
+
+    if (flippingList.length === 2) {                        // 뒤집배열의 길이가 2일때
+      if (flippingList[0].id === flippingList[1].id) {      // 두 뒤집배열요소의 id가 같은지?
+        console.log("두 뒤집배열요소의 id가 같은 때 ");
+        
+        //같으면
+        //setCorrect(correct+1);                            //count 수 증가  -> 이거때문에 카드 위치 리셋됨!!!! 
+        flippedList.push(card);                             // 완성배열로 이동 
+        flippingList = [];                                  // 뒤집배열 초기화 
+
+        // 모두 맞췄다면? 
+      }
+      else {                                                // 두 뒤집배열요소가 다를 때 
+        console.log("두 뒤집배열요소가 다를 때 ");
+
+        flag = false;
+
+        setTimeout(() => {
+          flippingList[0].classList.remove('flipped');
+          flippingList[1].classList.remove('flipped');      // 뒤집기
+
+          flippingList = [];                                // 뒤집배열 초기화
+
+          flag = true;
+        },700);
+      }
+    }
+
   }
 
+  // id : Card의 key값을 다 다르게 부여하기 위해서 10을 더해서 idx를 만들었으니까 같은 id인지 비교하려면 일의자리수만 걸러줘야함 
   return (
-    <Wrapper>
-     <OneCard onClick={flipCard} flip={flip}>
+    <Wrapper>  
+     <OneCard onClick={flipCard} id={idx%10}>
         <CardBack>🙈</CardBack>
         <CardImg src={src}/>
       </OneCard>
@@ -37,7 +72,9 @@ const OneCard = styled.section`
 
   transition: all 0.5s;
   transform-style: preserve-3d;
-  transform: ${(props) => (props.flip ? "rotateY(180deg)" : "none")};
+  &.flipped {
+    transform: rotateY(180deg);
+  }
 `
 
 const CardBack = styled.article`
