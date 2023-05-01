@@ -18,6 +18,7 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
 
   //카드 배열하는 함수
   function arrayCard(arr) {
+    shuffle(arr);
     let tempArray = arr.slice(0,all);
 
     //tempArray = [...tempArray,...tempArray];

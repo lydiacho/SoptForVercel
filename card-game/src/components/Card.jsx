@@ -28,7 +28,7 @@ export default function Card({idx,src, correct, setCorrect, all, flippedList, se
         setFlippedList([...flippedList, ...flippingList]);    // 완성배열로 이동 
         flippingList = [];                                  // 뒤집배열 초기화 
 
-        // 모두 맞췄다면? 
+        // 모두 맞췄다면? -> 왜 안되지.. 
         if (correct === all) {
           alert('끝!축하합니다');
         }
