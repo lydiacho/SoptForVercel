@@ -7,7 +7,6 @@ export default function HeaderLayout({correct,all}) {
 
   useEffect(() => {
     countRef.current.classList.add('anim');
-
     setTimeout(() => {
       countRef.current.classList.remove('anim');
     }, 500);
