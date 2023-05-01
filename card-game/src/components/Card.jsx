@@ -1,17 +1,15 @@
 import styled from 'styled-components';
+import resetAll from '../utils/reset';
 
 
 let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
 let flippingList = [];  // 뒤집배열 
-let flippedList = [];   // 완성배열
 
-export default function Card({idx,src, correct, setCorrect, all}) {
+export default function Card({idx,src, correct, setCorrect, all, flippedList, setFlippedList}) {
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
-    for (const item of flippedList) {
-      item.classList.remove('flipped');
-    }
+    resetAll(flippedList);
   }
 
   // 카드 뒤집는 함수 
@@ -27,7 +25,7 @@ export default function Card({idx,src, correct, setCorrect, all}) {
 
         //같으면
         setCorrect(correct+1);                              //count 수 증가  -> 이거때문에 카드 위치 리셋됨!!!! 
-        flippedList = [...flippedList, ...flippingList];    // 완성배열로 이동 
+        setFlippedList([...flippedList, ...flippingList]);    // 완성배열로 이동 
         flippingList = [];                                  // 뒤집배열 초기화 
 
         // 모두 맞췄다면? 

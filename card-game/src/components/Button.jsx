@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import resetAll from '../utils/reset';
 
 
-export default function Button({difficulty, setAll}) {
+export default function Button({difficulty, setAll, setCorrect, flippedList}) {
   
   function setDifficulty() {
+
+    resetAll(flippedList);
+    setCorrect(0);
+    
     switch (difficulty) {
       case "Easy" : 
         setAll(5);

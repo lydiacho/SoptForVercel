@@ -2,16 +2,19 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { monkeyData } from '../constant/cardData';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 //배열 섞는 함수
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
+
 export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
 
-  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect}/>);
+  const [flippedList,setFlippedList] = useState([]);   // 완성배열
+
+  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all} flippedList={flippedList} setFlippedList={setFlippedList}/>);
 
   //카드 배열하는 함수
   function arrayCard(arr) {
@@ -34,9 +37,9 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
   return (
     <MainSection>
       <ButtonBox>
-        <Button difficulty="Easy" setAll={setAll}/>
-        <Button difficulty="Normal" setAll={setAll}/>
-        <Button difficulty="Hard" setAll={setAll}/>
+        <Button difficulty="Easy" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
+        <Button difficulty="Normal" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
+        <Button difficulty="Hard" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
       </ButtonBox>
       <CardSection>
         {monkeyList}
