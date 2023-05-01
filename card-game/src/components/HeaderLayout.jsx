@@ -1,10 +1,23 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 export default function HeaderLayout({correct,all}) {
+
+  const countRef = useRef();
+
+  useEffect(() => {
+    countRef.current.classList.add('anim');
+
+    setTimeout(() => {
+      countRef.current.classList.remove('anim');
+    }, 500);
+  }, [correct])
+  
+
   return (
     <GameHeader>
       <h1>🐒숭이를 찾아라!🐒</h1>
-      <GameCount>{correct}/{all}</GameCount>
+      <GameCount ref={countRef}>{correct}/{all}</GameCount>
     </GameHeader>
   )
 }
@@ -26,4 +39,23 @@ const GameCount = styled.p`
   margin-top: 2rem;
   
   color: ${({ theme }) => theme.colors.darkGray};
+
+  &.anim {
+    animation : 1.3s anim-flipX ease
+  }
+
+  @keyframes anim-flipX {
+      0% {
+        opacity: 0;
+        transform: rotateX(90def);
+      }
+      50% {
+        opacity: 1;
+        transform: rotateX(720deg);
+      }
+      100% {
+        opacity: 1;
+        transform: rotateX(720deg);
+      }
+    }
 `
