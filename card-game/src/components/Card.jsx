@@ -5,7 +5,7 @@ let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제
 let flippingList = [];  // 뒤집배열 
 let flippedList = [];   // 완성배열
 
-export default function Card({idx,src, correct, setCorrect}) {
+export default function Card({idx,src, correct, setCorrect, all}) {
 
   // 카드 뒤집는 함수 
   const flipCard = (e) => {
@@ -17,18 +17,18 @@ export default function Card({idx,src, correct, setCorrect}) {
 
     if (flippingList.length === 2) {                        // 뒤집배열의 길이가 2일때
       if (flippingList[0].id === flippingList[1].id) {      // 두 뒤집배열요소의 id가 같은지?
-        console.log("두 뒤집배열요소의 id가 같은 때 ");
-        
+
         //같으면
-        //setCorrect(correct+1);                            //count 수 증가  -> 이거때문에 카드 위치 리셋됨!!!! 
+        setCorrect(correct+1);                              //count 수 증가  -> 이거때문에 카드 위치 리셋됨!!!! 
         flippedList.push(card);                             // 완성배열로 이동 
         flippingList = [];                                  // 뒤집배열 초기화 
 
         // 모두 맞췄다면? 
+        if (correct === all) {
+          alert('끝!축하합니다');
+        }
       }
       else {                                                // 두 뒤집배열요소가 다를 때 
-        console.log("두 뒤집배열요소가 다를 때 ");
-
         flag = false;
 
         setTimeout(() => {
@@ -38,7 +38,7 @@ export default function Card({idx,src, correct, setCorrect}) {
           flippingList = [];                                // 뒤집배열 초기화
 
           flag = true;
-        },700);
+        },500);
       }
     }
 

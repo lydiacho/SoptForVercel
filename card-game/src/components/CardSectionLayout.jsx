@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { monkeyData } from '../constant/cardData';
+import { useEffect } from 'react';
 
 //배열 섞는 함수
 function shuffle(array) {
@@ -9,7 +10,8 @@ function shuffle(array) {
 }
 
 export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
-  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect}/>);
+
+  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all}/>);
 
   //카드 배열하는 함수
   function arrayCard(arr) {
