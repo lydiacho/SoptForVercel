@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { monkeyData } from '../constant/cardData';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 //배열 섞는 함수
 function shuffle(array) {
@@ -14,7 +14,13 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성배열
 
-  const monkeyList = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all} flippedList={flippedList} setFlippedList={setFlippedList}/>);
+  const monkeyList = useMemo(() => {
+    let tempArray = arrayCard(monkeyData).map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all} flippedList={flippedList} setFlippedList={setFlippedList}/>);
+    return tempArray;
+  }, [all])
+
+  
+
 
   //카드 배열하는 함수
   function arrayCard(arr) {
