@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react';
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import FindMonkey from './pages/FindMonkey';
 import ResetButton from './components/ResetButton';
 import GlobalStyle from "./styles/globalStyle";

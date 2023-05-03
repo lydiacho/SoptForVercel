@@ -24,7 +24,9 @@ export default function Card({idx,src, correct, setCorrect, all, flippedList, se
       if (flippingList[0].id === flippingList[1].id) {      // 두 뒤집배열요소의 id가 같은지?
 
         //같으면
+
         setCorrect(correct+1);                              //count 수 증가  -> 이거때문에 카드 위치 리셋됨!!!! 
+
         setFlippedList([...flippedList, ...flippingList]);    // 완성배열로 이동 
         flippingList = [];                                  // 뒤집배열 초기화 
 
@@ -59,6 +61,7 @@ export default function Card({idx,src, correct, setCorrect, all, flippedList, se
     </Wrapper>
   )
 }
+
 
 
 const Wrapper = styled.li`
