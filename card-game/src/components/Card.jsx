@@ -1,16 +1,26 @@
 import styled from 'styled-components';
 import resetAll from '../utils/reset';
 
+import { useEffect } from 'react';
+
+
 
 let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
 let flippingList = [];  // 뒤집배열 
 
-export default function Card({idx,src, correct, setCorrect, all, flippedList, setFlippedList}) {
+export default function Card({idx,src, correct, setCorrect, all, flippedList, setFlippedList, setSuccess}) {
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
     resetAll(flippedList);
   }
+
+  useEffect(() => {
+    // 모두 맞췄다면? -> 왜 안되지.. 
+    if (correct === all) {
+      setSuccess(true);
+    }
+  }, [correct]);
 
   // 카드 뒤집는 함수 
   const flipCard = (e) => {
@@ -30,10 +40,6 @@ export default function Card({idx,src, correct, setCorrect, all, flippedList, se
         setFlippedList([...flippedList, ...flippingList]);    // 완성배열로 이동 
         flippingList = [];                                  // 뒤집배열 초기화 
 
-        // 모두 맞췄다면? -> 왜 안되지.. 
-        if (correct === all) {
-          alert('끝!축하합니다');
-        }
       }
       else {                                                // 두 뒤집배열요소가 다를 때 
         flag = false;

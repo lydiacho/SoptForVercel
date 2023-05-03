@@ -8,6 +8,7 @@ const colors = {
     purple: "#9900F0",
     lightYellow: "#F3F798",
     darkGray: "#4e4e4e",
+    backgroundBlack: "#00000060"
   };
   
   const theme = {

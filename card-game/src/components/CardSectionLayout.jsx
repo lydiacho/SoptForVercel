@@ -10,7 +10,7 @@ function shuffle(array) {
 }
 
 
-export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
+export default function CardSectionLayout({all, setAll, correct, setCorrect, setSuccess}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성배열
 
@@ -18,7 +18,7 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect}) {
     return arrayCard(monkeyData);
   }, [all])
 
-  const monkeyComponentList = monkeyList.map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all} flippedList={flippedList} setFlippedList={setFlippedList}/>);
+  const monkeyComponentList = monkeyList.map((monkey) => <Card key={monkey.id} idx={monkey.id} src={monkey.src} correct={correct} setCorrect={setCorrect} all={all} flippedList={flippedList} setFlippedList={setFlippedList} setSuccess={setSuccess}/>);
 
   //카드 배열하는 함수
   function arrayCard(arr) {
