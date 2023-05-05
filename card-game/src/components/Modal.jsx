@@ -15,7 +15,7 @@ export default function Modal({success, setSuccess}) {
 const ModalBox = styled.section`
     position: absolute;
     width:100vw;
-    height:100%;
+    height:100vh;
     z-index: 999;
 
     justify-content: center;
