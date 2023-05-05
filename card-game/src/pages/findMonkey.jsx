@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-
-
 import { useState } from 'react';
 import CardSectionLayout from '../components/CardSectionLayout';
 import HeaderLayout from '../components/HeaderLayout';
@@ -12,9 +10,14 @@ export default function FindMonkey({correct, setCorrect}) {
 
   return (
     <MainBox>
-        <HeaderLayout correct={correct} all={all}/>
-        <CardSectionLayout all={all} setAll={setAll} correct={correct} setCorrect={setCorrect} setSuccess={setSuccess}/>
-        <Modal success={success} setSuccess={setSuccess}/>
+        <HeaderLayout 
+          correct={correct} all={all}/>
+        <CardSectionLayout 
+          all={all} setAll={setAll} 
+          correct={correct} setCorrect={setCorrect} 
+          setSuccess={setSuccess}/>
+        <Modal 
+          success={success} setSuccess={setSuccess}/>
     </MainBox>
   )
 }
@@ -26,5 +29,4 @@ const MainBox = styled.main`
   position: absolute;
   
   width: 100%;
-  
 `

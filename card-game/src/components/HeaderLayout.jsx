@@ -5,6 +5,7 @@ export default function HeaderLayout({correct,all}) {
 
   const countRef = useRef();
 
+  // 카드 일치 시 correct 값이 변하면, 점수판에 0.5초동안 애니메이션 부여
   useEffect(() => {
     countRef.current.classList.add('anim');
     setTimeout(() => {
