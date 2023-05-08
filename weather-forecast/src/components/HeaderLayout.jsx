@@ -19,7 +19,7 @@ const St = {
     padding: 3rem;
     height: 14%;
 
-    background-color: ${({ theme }) => theme.colors.titleBlue};;
+    background-color: ${({ theme }) => theme.colors.titleBlue};
     
     color: white;
     font-size: 4rem;
