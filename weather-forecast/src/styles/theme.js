@@ -6,6 +6,7 @@ const colors = {
   Sopt_Coral: "#FF8787",
   Sopt_White: "#FFFFFF",
   Sopt_Black: "#000000",
+  skyblue: "#E7FAFE",
 };
 
 
