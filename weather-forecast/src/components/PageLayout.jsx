@@ -16,7 +16,7 @@ export default PageLayout
 
 const St = {
     Wrapper : styled.section`
-        background-color:${({ theme }) => theme.colors.skyblue};
+        background-color:${({ theme }) => theme.colors.backgroundBlue};
         width:100vw;
         height:100%;
     `
