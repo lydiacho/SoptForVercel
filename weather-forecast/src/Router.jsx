@@ -1,9 +1,10 @@
 import React from 'react'
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
 import DayForecast from './pages/DayForecast';
 import WeekForecast from './pages/WeekForecast';
-
+import DayCard from './components/DayCard';
+import WeekCard from './components/WeekCard';
 
 
 const Router = () => {
@@ -12,10 +13,10 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/day" element={<DayForecast/>}>
-                <Outlet/>
+                <Route path=":area" element={<DayCard />} />
             </Route>
-            <Route path="/day" element={<WeekForecast/>}>
-                <Outlet/>
+            <Route path="/week" element={<WeekForecast/>}>
+                <Route path=":area" element={<WeekCard />} />
             </Route>
         </Routes>
     </BrowserRouter>
