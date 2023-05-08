@@ -1,40 +1,52 @@
+import img1 from "../assets/숭1.png";
+import img2 from "../assets/숭2.png";
+import img3 from "../assets/숭3.png";
+import img4 from "../assets/숭4.png";
+import img5 from "../assets/숭5.png";
+import img6 from "../assets/숭6.png";
+import img7 from "../assets/숭7.png";
+import img8 from "../assets/숭8.png";
+import img9 from "../assets/숭9.png";
+
+
+
 // 카드 상수 데이터
 const monkeyData = [
     {
         id:0,
-        src:"public/img/숭1.png"
+        src:img1
     },
     {
         id:1,
-        src:"public/img/숭2.png"
+        src:img2
     },
     {
         id:2,
-        src:"public/img/숭3.png"
+        src:img3
     },
     {
         id:3,
-        src:"public/img/숭4.png"
+        src:img4
     },
     {
         id:4,
-        src:"public/img/숭5.png"
+        src:img5
     },
     {
         id:5,
-        src:"public/img/숭6.png"
+        src:img6
     },
     {
         id:6,
-        src:"public/img/숭7.png"
+        src:img7
     },
     {
         id:7,
-        src:"public/img/숭8.png"
+        src:img8
     },
     {
         id:8,
-        src:"public/img/숭9.png"
+        src:img9
     }
 ];
 
