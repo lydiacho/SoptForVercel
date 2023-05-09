@@ -7,9 +7,6 @@ const DayCard = () => {
 
   const {area} = useParams();
 
-  console.log("어딨니");
-  console.log(area);
-
   return (
     <h1>아랄ㄹ라라라라라라라{area}</h1>
   )
