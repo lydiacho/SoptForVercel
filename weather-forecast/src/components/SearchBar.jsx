@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 
 const SearchBar = () => {
+
+    const [area, setArea] = useState('');
+
   return (
     <St.Search>
         <St.Combobox>
@@ -11,7 +14,10 @@ const SearchBar = () => {
                 <option value="week">주간</option>
             </select>
         </St.Combobox>
-        <St.InputBox placeholder="영어로 도시명 검색 (ex-seoul)"/>
+        <St.InputBox 
+            placeholder = "영어로 도시명 검색 (ex-seoul)"
+            value = {area}
+            onChange = {(e)=>setArea(e.target.value)}/>
         <St.Button>
             날씨 검색
         </St.Button>
