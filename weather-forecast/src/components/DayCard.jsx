@@ -34,7 +34,7 @@ const DayCard = () => {
 export default DayCard
 
 const St = {
-  CardWrapper : styled.main`
+  CardWrapper : styled.article`
     display: flex;
     flex-direction: column;
     gap: 2rem;

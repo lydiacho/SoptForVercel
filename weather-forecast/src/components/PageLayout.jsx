@@ -10,7 +10,9 @@ const PageLayout = (props) => {
    <St.Wrapper>
     <HeaderLayout/>
     <SearchBar/>
-    {children}
+    <St.ChildWrapper>
+      {children}
+    </St.ChildWrapper>
    </St.Wrapper> 
   )
 }
@@ -22,5 +24,9 @@ const St = {
         background-color:${({ theme }) => theme.colors.backgroundBlue};
         width:100vw;
         height:100%;
+    `,
+    ChildWrapper : styled.main`
+      display:flex;
+      justify-content:center;
     `
 }
