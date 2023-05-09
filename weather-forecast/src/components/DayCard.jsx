@@ -51,7 +51,6 @@ const St = {
 
     & > h1 {
       color:white;
-      font-size: 5rem;
     }
 
     & > img {
