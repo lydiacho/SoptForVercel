@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
 const SearchBar = () => {
+
+    const navigate = useNavigate();
 
     const [area, setArea] = useState('');
     const [range, setRange] = useState('');
@@ -19,7 +22,7 @@ const SearchBar = () => {
             placeholder = "영어로 도시명 검색 (ex-seoul)"
             value = {area}
             onChange = {(e)=>setArea(e.target.value)}/>
-        <St.Button>
+        <St.Button onClick={()=>navigate(`/${range}/${area}`)}>
             날씨 검색
         </St.Button>
 
