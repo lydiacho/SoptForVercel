@@ -1,31 +1,44 @@
 import React from 'react'
+import { useEffect, useState } from "react"
+
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import axios from 'axios';
 
 
 const DayCard = () => {
 
   const {area} = useParams();
+  const [data,setData] = useState({});
+
+  useEffect(() => {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
+      .then(response => {
+        setData(response.data);
+      })
+  }, [])
+
+  const { name, weather, main, clouds } = data;
 
   return (
     <St.CardWrapper>
-      <h1>{area}</h1>
+      <h1>{name}</h1>
       <img src="https://i.pinimg.com/236x/fa/80/5a/fa805af9a1642835c51cdff085ab40f4.jpg"/>
       <St.CardText>
         <p>온도</p>
-        <p>11.75</p>
+        <p>{main.temp}</p>
       </St.CardText>
       <St.CardText>
         <p>체감 온도</p>
-        <p>10.91</p>
+        <p>{main.feels_like}</p>
       </St.CardText>
       <St.CardText>
         <p>최저/최고</p>
-        <p>00/00</p>
+        <p>{main.temp_min}/{main.temp_max}</p>
       </St.CardText>
       <St.CardText>
         <p>구름</p>
-        <p>20%</p>
+        <p>{clouds.all}%</p>
       </St.CardText>
     </St.CardWrapper>
   )
