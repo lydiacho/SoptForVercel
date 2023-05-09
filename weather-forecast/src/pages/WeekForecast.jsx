@@ -1,8 +1,12 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import PageLayout from '../components/PageLayout'
 
 const WeekForecast = () => {
   return (
-    <div>WeekForecast</div>
+    <PageLayout>
+      <Outlet/>
+    </PageLayout>
   )
 }
 
