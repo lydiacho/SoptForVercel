@@ -35,8 +35,8 @@ const WeekCard = () => {
       { dataList && 
         dataList.map(({ dt_txt, weather, main, clouds }) => (
           <St.CardWrapper key={dt_txt}>
-            <h1>{dt_txt}</h1>
-            <img src={WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0].imgURL}/>
+            <h1>{dt_txt.slice(5,10)}</h1>
+            <img src={WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0]?.imgURL}/>
             <St.CardText>
               <p>온도</p>
               <p>{main.temp}</p>
