@@ -13,10 +13,10 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/day" element={<DayForecast/>}>
-                <Route path=":area" element={<DayCard />} />
+                <Route path=":area" element={<DayCard/>} />
             </Route>
             <Route path="/week" element={<WeekForecast/>}>
-                <Route path=":area" element={<WeekCard />} />
+                <Route path=":area" element={<WeekCard/>} />
             </Route>
         </Routes>
     </BrowserRouter>

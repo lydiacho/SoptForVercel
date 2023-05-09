@@ -3,11 +3,14 @@ import styled from 'styled-components';
 import HeaderLayout from './HeaderLayout';
 import SearchBar from './SearchBar';
 
-const PageLayout = () => {
+const PageLayout = (props) => {
+  const { children } = props;
+
   return (
    <St.Wrapper>
     <HeaderLayout/>
     <SearchBar/>
+    {children}
    </St.Wrapper> 
   )
 }
