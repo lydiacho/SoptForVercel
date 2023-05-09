@@ -4,11 +4,12 @@ import styled from "styled-components";
 const SearchBar = () => {
 
     const [area, setArea] = useState('');
+    const [range, setRange] = useState('');
 
   return (
     <St.Search>
         <St.Combobox>
-            <select name="range">
+            <select name="range" onChange={(e)=>setRange(e.target.value)}>
                 <option value="none">==선택==</option>
                 <option value="day">오늘</option>
                 <option value="week">주간</option>
