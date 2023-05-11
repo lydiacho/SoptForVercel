@@ -20,11 +20,38 @@ const St = {
         gap: 2rem;
         align-items: center;
 
+        position : relative;
+
         width: 20%;
         padding : 2rem 0rem;
 
         background-color: white;
         border-radius: 1.5rem;
+
+        overflow: hidden;
+
+
+        @keyframes loading {
+            0% {
+                transform: translateX(0);
+            }
+            50%,
+            100% {
+                transform: translateX(460px);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top:0;
+            left:0;
+
+            width: 3rem;
+            height: 100%;
+            background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+            animation: loading 1.5s infinite linear;
+        }
     `,
     HeaderBox : styled.div`
         width: 50%;

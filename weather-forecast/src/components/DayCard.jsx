@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from 'axios';
 import { WEATER_TYPE } from '../constants/weather';
+import Skeleton from './Skeleton';
 
 
 const DayCard = () => {
@@ -37,6 +38,7 @@ const DayCard = () => {
   return (
     <>
       { weather && main && clouds &&
+      <St.TotalWrapper>
         <St.CardWrapper>
           <h1>{name}</h1>
           {imgUrl && <img src={imgUrl[0].imgURL}/> }
@@ -57,6 +59,8 @@ const DayCard = () => {
             <p>{clouds?.all}%</p>
           </St.CardText>
         </St.CardWrapper>
+        <Skeleton/>
+        </St.TotalWrapper>
       }
     </>
   )
@@ -65,6 +69,18 @@ const DayCard = () => {
 export default DayCard
 
 const St = {
+  TotalWrapper: styled.div`
+    display: flex;
+    justify-content: center;    
+
+    position: relative;
+
+    width:100%;
+
+    & > Skeleton {
+
+    }
+  `,
   CardWrapper : styled.article`
     display: flex;
     flex-direction: column;
