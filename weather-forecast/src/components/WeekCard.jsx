@@ -2,18 +2,20 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { WEATER_TYPE } from '../constants/weather';
 import useGetWeather from '../hooks/useGetWeather';
+import ErrorLayout from "./ErrorLayout";
 import Skeleton from './Skeleton';
 
 const WeekCard = () => {
 
   const {area} = useParams();
-  const { dataList, loading } = useGetWeather("week", area);
+  const { dataList, loading, error } = useGetWeather("week", area);
 
   return (
     <>
-      {dataList && 
+      {error ? <ErrorLayout/> :  (
+        dataList && 
         dataList.map(({ dt_txt, weather, main, clouds }) => (
-          loading? <Skeleton key={dt_txt}/> :
+          loading? <Skeleton key={dt_txt}/> : (
           <St.CardWrapper key={dt_txt}>
             <h1>{dt_txt.slice(5,10)}</h1>
             <img src={WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0]?.imgURL}/>
@@ -33,8 +35,9 @@ const WeekCard = () => {
               <p>구름</p>
               <p>{clouds.all}%</p>
             </St.CardText>
-        </St.CardWrapper>))
-      }
+          </St.CardWrapper>)))
+      )  
+    }
     </>
   )
 }

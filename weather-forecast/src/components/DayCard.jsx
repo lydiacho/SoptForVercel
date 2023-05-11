@@ -3,42 +3,45 @@ import styled from "styled-components";
 import { WEATER_TYPE } from '../constants/weather';
 import Skeleton from './Skeleton';
 import useGetWeather from '../hooks/useGetWeather';
+import ErrorLayout from "./ErrorLayout";
 
 
 const DayCard = () => {
 
   const {area} = useParams();
-  const { dataList, loading } = useGetWeather("day", area);
+  const { dataList, loading, error } = useGetWeather("day", area);
   const { name, weather, main, clouds } = dataList;
   const imgUrl = WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))
 
   return (
     <>
-      { weather && main && clouds &&
-      <St.TotalWrapper>
-        {loading? <Skeleton/> :
-        <St.CardWrapper>
-          <h1>{name}</h1>
-          {imgUrl && <img src={imgUrl[0].imgURL}/> }
-          <St.CardText>
-            <p>온도</p>
-            <p>{main?.temp}</p>
-          </St.CardText>
-          <St.CardText>
-            <p>체감 온도</p>
-            <p>{main?.feels_like}</p>
-          </St.CardText>
-          <St.CardText>
-            <p>최저/최고</p>
-            <p>{main?.temp_min}/{main?.temp_max}</p>
-          </St.CardText>
-          <St.CardText>
-            <p>구름</p>
-            <p>{clouds?.all}%</p>
-          </St.CardText>
-        </St.CardWrapper>
-        }
-        </St.TotalWrapper>
+      {error ? <ErrorLayout/> : (
+        weather && main && clouds &&
+        <St.TotalWrapper>
+          { loading? <Skeleton/> :
+          <St.CardWrapper>
+            <h1>{name}</h1>
+            {imgUrl && <img src={imgUrl[0].imgURL}/> }
+            <St.CardText>
+              <p>온도</p>
+              <p>{main?.temp}</p>
+            </St.CardText>
+            <St.CardText>
+              <p>체감 온도</p>
+              <p>{main?.feels_like}</p>
+            </St.CardText>
+            <St.CardText>
+              <p>최저/최고</p>
+              <p>{main?.temp_min}/{main?.temp_max}</p>
+            </St.CardText>
+            <St.CardText>
+              <p>구름</p>
+              <p>{clouds?.all}%</p>
+            </St.CardText>
+          </St.CardWrapper>
+          }
+          </St.TotalWrapper>
+      )
       }
     </>
   )
