@@ -1,40 +1,15 @@
 import React from 'react'
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import axios from 'axios';
 import { WEATER_TYPE } from '../constants/weather';
+import useGetWeather from '../hooks/useGetWeather';
 import Skeleton from './Skeleton';
 
 const WeekCard = () => {
 
   const {area} = useParams();
-  const [dataList,setDataList] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-
-  const getWeekWeather = () => {
-    try {
-      axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
-      .then(response => {
-        setDataList(response.data.list.filter((_,idx)=>idx%8===0));
-        setLoading(false);
-      })
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    setLoading(true);
-    getWeekWeather();
-  }, [])
-
-  useEffect(() => {
-    setLoading(true);
-    getWeekWeather();
-  }, [area])
-
+  const { dataList, loading } = useGetWeather(area);
 
   return (
     <>
