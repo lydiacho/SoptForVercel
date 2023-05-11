@@ -23,7 +23,9 @@ const St = {
         position : relative;
 
         width: 20%;
+        height:40rem;
         padding : 2rem 0rem;
+        margin: 1rem;
 
         background-color: white;
         border-radius: 1.5rem;

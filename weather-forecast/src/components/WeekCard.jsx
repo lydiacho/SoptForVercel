@@ -4,17 +4,21 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from 'axios';
 import { WEATER_TYPE } from '../constants/weather';
+import Skeleton from './Skeleton';
 
 const WeekCard = () => {
 
   const {area} = useParams();
   const [dataList,setDataList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   const getWeekWeather = () => {
     try {
       axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
       .then(response => {
         setDataList(response.data.list.filter((_,idx)=>idx%8===0));
+        setLoading(false);
       })
     } catch (err) {
       console.log(err);
@@ -22,18 +26,21 @@ const WeekCard = () => {
   }
 
   useEffect(() => {
+    setLoading(true);
     getWeekWeather();
   }, [])
 
   useEffect(() => {
+    setLoading(true);
     getWeekWeather();
   }, [area])
 
 
   return (
     <>
-      { dataList && 
+      {dataList && 
         dataList.map(({ dt_txt, weather, main, clouds }) => (
+          loading? <Skeleton key={dt_txt}/> :
           <St.CardWrapper key={dt_txt}>
             <h1>{dt_txt.slice(5,10)}</h1>
             <img src={WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))[0]?.imgURL}/>
@@ -58,6 +65,7 @@ const WeekCard = () => {
     </>
   )
 }
+
 
 export default WeekCard
 
