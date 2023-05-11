@@ -11,12 +11,14 @@ const DayCard = () => {
 
   const {area} = useParams();
   const [data,setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const getWeather = () => {
     try {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
       .then(response => {
         setData(response.data);
+        setLoading(false);
       })
     } catch (err) {
       console.log(err);
@@ -24,10 +26,12 @@ const DayCard = () => {
   }
 
   useEffect(() => {
+    setLoading(true);
     getWeather();
   }, [])
 
   useEffect(() => {
+    setLoading(true);
     getWeather();
   }, [area])
 
@@ -39,6 +43,7 @@ const DayCard = () => {
     <>
       { weather && main && clouds &&
       <St.TotalWrapper>
+        {loading? <Skeleton/> :
         <St.CardWrapper>
           <h1>{name}</h1>
           {imgUrl && <img src={imgUrl[0].imgURL}/> }
@@ -59,7 +64,7 @@ const DayCard = () => {
             <p>{clouds?.all}%</p>
           </St.CardText>
         </St.CardWrapper>
-        <Skeleton/>
+        }
         </St.TotalWrapper>
       }
     </>
@@ -76,10 +81,8 @@ const St = {
     position: relative;
 
     width:100%;
+    height:40rem;
 
-    & > Skeleton {
-
-    }
   `,
   CardWrapper : styled.article`
     display: flex;
