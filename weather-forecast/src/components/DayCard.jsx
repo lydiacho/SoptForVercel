@@ -82,7 +82,6 @@ const St = {
 
     width:100%;
     height:40rem;
-
   `,
   CardWrapper : styled.article`
     display: flex;
