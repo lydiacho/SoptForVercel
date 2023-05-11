@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { WEATER_TYPE } from '../constants/weather';
@@ -8,8 +7,7 @@ import Skeleton from './Skeleton';
 const WeekCard = () => {
 
   const {area} = useParams();
-
-  const { dataList, loading } = useGetWeather(area);
+  const { dataList, loading } = useGetWeather("week", area);
 
   return (
     <>

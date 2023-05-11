@@ -1,42 +1,15 @@
-import React from 'react'
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import axios from 'axios';
 import { WEATER_TYPE } from '../constants/weather';
 import Skeleton from './Skeleton';
+import useGetWeather from '../hooks/useGetWeather';
 
 
 const DayCard = () => {
 
   const {area} = useParams();
-  const [data,setData] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  const getWeather = () => {
-    try {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric`)
-      .then(response => {
-        setData(response.data);
-        setLoading(false);
-      })
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    setLoading(true);
-    getWeather();
-  }, [])
-
-  useEffect(() => {
-    setLoading(true);
-    getWeather();
-  }, [area])
-
-  const { name, weather, main, clouds } = data;
-
+  const { dataList, loading } = useGetWeather("day", area);
+  const { name, weather, main, clouds } = dataList;
   const imgUrl = WEATER_TYPE.filter(item => weather && (item.description === weather[0].description))
 
   return (
