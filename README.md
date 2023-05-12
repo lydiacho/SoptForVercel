@@ -16,3 +16,5 @@
 |2주차|리액트구조|[`생각`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/6)|
 |3주차|숭이찾기|[`기본` `심화`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/7)|
 |3주차|상태관리|[`생각`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/8)|
+|4주차|날씨예보|[`기본` `심화`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/10)|
+|4주차|drilling|[`생각`](https://github.com/GO-SOPT-WEB/SeungHeeCho/pull/9)|
