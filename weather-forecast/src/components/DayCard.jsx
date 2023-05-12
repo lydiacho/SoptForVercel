@@ -65,7 +65,7 @@ const St = {
     gap: 2rem;
     align-items: center;
 
-    width: 20%;
+    width: 25rem;
     padding : 2rem 0rem;
 
     background-color: ${({ theme }) => theme.colors.cardBlue};
