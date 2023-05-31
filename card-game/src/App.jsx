@@ -1,4 +1,3 @@
-import './App.css'
 import { useState } from 'react';
 import { ThemeProvider } from "styled-components";
 import FindMonkey from './pages/findMonkey';

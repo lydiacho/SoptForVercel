@@ -3,10 +3,10 @@ import resetAll from '../utils/reset';
 
 import { useEffect } from 'react';
 
-let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
-let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
-
 export default function Card({idx,src, correct, setCorrect, all, flippedList, setFlippedList, setSuccess}) {
+
+  let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
+  let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
