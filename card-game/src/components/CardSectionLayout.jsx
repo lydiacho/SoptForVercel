@@ -19,11 +19,11 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
     array.sort(() => Math.random() - 0.5);
   }
 
-  const monkeyComponentList = monkeyList.map((monkey) => 
+  const monkeyComponentList = monkeyList.map(({id,src}) => 
     <Card 
-      key={monkey.id} 
-      idx={monkey.id} 
-      src={monkey.src} 
+      key={id} 
+      idx={id} 
+      src={src} 
       correct={correct} setCorrect={setCorrect} 
       all={all} 
       flippedList={flippedList} setFlippedList={setFlippedList} 
@@ -34,8 +34,6 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
     shuffle(arr);   
     let tempArray = arr.slice(0,all);
 
-    //tempArray = [...tempArray,...tempArray]; 로 카드를 두배로 만들어주려고 하였으나! 
-    //mapping 시 key를 고유하게 부여하기 위해 배열 합치는 과정에서 id를 다르게 설정 (10씩 더해주고, 나중에 id로 같은카드 찾을때는 id%10으로 접근함)
     for (let i=0; i<all; i++) {
       tempArray.push({
         id: tempArray[i].id+10,
