@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 
-export default function Modal({success, setSuccess}) {
+export default function Modal({isSuccess, setSuccess}) {
   return (
-    <ModalBox success={success}>
+    <ModalBox isSuccess={isSuccess}>
         <Content>
             <ModalText>🎊축하합니당 숭숭박사시네용🎊</ModalText>
             <ModalButton onClick={() => setSuccess(false)}>게임으로 돌아가기 </ModalButton>
@@ -22,7 +22,7 @@ const ModalBox = styled.section`
 
     background-color: ${({ theme }) => theme.colors.backgroundBlack};
 
-    display : ${({success}) => (success ? "flex" : "none")};
+    display : ${({isSuccess}) => (isSuccess ? "flex" : "none")};
 `
 
 const Content = styled.article`

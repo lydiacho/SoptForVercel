@@ -6,7 +6,7 @@ import Modal from '../components/Modal';
 
 export default function FindMonkey({correct, setCorrect}) {
     const [all, setAll] = useState(5);
-    const [success, setSuccess] = useState(false);
+    const [isSuccess, setSuccess] = useState(false);
 
   return (
     <MainBox>
@@ -17,7 +17,7 @@ export default function FindMonkey({correct, setCorrect}) {
           correct={correct} setCorrect={setCorrect} 
           setSuccess={setSuccess}/>
         <Modal 
-          success={success} setSuccess={setSuccess}/>
+          isSuccess={isSuccess} setSuccess={setSuccess}/>
     </MainBox>
   )
 }
