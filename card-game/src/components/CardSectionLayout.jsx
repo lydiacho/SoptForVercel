@@ -8,30 +8,15 @@ import { useState, useMemo } from 'react';
 export default function CardSectionLayout({all, setAll, correct, setCorrect, setSuccess}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
-  const DIFFICULTY = ["Easy", "Normal", "Hard"];
+  const DIFFICULTY = ["Easy", "Normal", "Hard"];  
+  
 
-  // 난이도가 변경될 때마다 카드 배열 재조합/재정렬
-  const monkeyList = useMemo(() => {
-    return arrayCard(monkeyData);
-  }, [all])
-
-  //배열 섞는 함수
-  const shuffle = (array) => {
+  function shuffle (array) {
     array.sort(() => Math.random() - 0.5);
   }
 
-  const monkeyComponentList = monkeyList.map(({id,src}) => 
-    <Card 
-      key={id} 
-      idx={id} 
-      src={src} 
-      correct={correct} setCorrect={setCorrect} 
-      all={all} 
-      flippedList={flippedList} setFlippedList={setFlippedList} 
-      setSuccess={setSuccess}/>);
-
   //카드 배열하는 함수
-  function arrayCard(arr) {
+  function arrayCard (arr) {
     shuffle(arr);   
     let tempArray = arr.slice(0,all);
 
@@ -46,6 +31,21 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
 
     return tempArray;
   }
+
+  // 난이도가 변경될 때마다 카드 배열 재조합/재정렬
+  const monkeyList = useMemo(() => {
+    return arrayCard(monkeyData);
+  }, [all])
+
+  const monkeyComponentList = monkeyList.map(({id,src}) => 
+    <Card 
+      key={id} 
+      idx={id} 
+      src={src} 
+      correct={correct} setCorrect={setCorrect} 
+      all={all} 
+      flippedList={flippedList} setFlippedList={setFlippedList} 
+      setSuccess={setSuccess}/>);
   
   return (
     <MainSection>

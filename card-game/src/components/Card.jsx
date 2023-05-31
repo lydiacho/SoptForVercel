@@ -3,12 +3,12 @@ import resetAll from '../utils/reset';
 
 import { useEffect } from 'react';
 
+let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
+let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
+
 export default function Card(props) {
 
   const {idx,src, correct, setCorrect, all, flippedList, setFlippedList, setSuccess} = props;
-
-  let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
-  let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
@@ -54,7 +54,6 @@ export default function Card(props) {
 
   }
 
-  // id : Card의 key값을 다 다르게 부여하기 위해서 10을 더해서 idx를 만들었으니까 같은 id인지 비교하려면 일의자리수만 걸러줘야함 
   return (
     <Wrapper>  
      <OneCard onClick={handleFlipCard} id={idx%10}>
