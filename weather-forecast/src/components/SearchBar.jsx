@@ -9,7 +9,7 @@ const SearchBar = () => {
     const [area, setArea] = useState('');
     const [range, setRange] = useState('');
 
-  return (
+    return (
     <St.Search>
         <St.Combobox>
             <select name="range" onChange={(e)=>setRange(e.target.value)}>
