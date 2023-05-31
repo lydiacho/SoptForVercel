@@ -8,6 +8,7 @@ import { useState, useMemo } from 'react';
 export default function CardSectionLayout({all, setAll, correct, setCorrect, setSuccess}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
+  const DIFFICULTY = ["Easy", "Normal", "Hard"];
 
   // 난이도가 변경될 때마다 카드 배열 재조합/재정렬
   const monkeyList = useMemo(() => {
@@ -49,9 +50,9 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
   return (
     <MainSection>
       <ButtonBox>
-        <Button difficulty="Easy" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
-        <Button difficulty="Normal" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
-        <Button difficulty="Hard" setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
+        {DIFFICULTY.map((el)=>
+          <Button key={el} difficulty={el} setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
+        )}
       </ButtonBox>
       <CardSection>
         {monkeyComponentList}
