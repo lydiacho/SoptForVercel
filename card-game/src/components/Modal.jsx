@@ -22,7 +22,7 @@ const ModalBox = styled.section`
 
     background-color: ${({ theme }) => theme.colors.backgroundBlack};
 
-    display : ${(props) => (props.success ? "flex" : "none")};
+    display : ${({success}) => (success ? "flex" : "none")};
 `
 
 const Content = styled.article`
