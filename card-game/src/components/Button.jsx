@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import resetAll from '../utils/reset';
 
 
-export default function Button({difficulty, setAll, setCorrect, flippedList}) {
+export default function Button(props) {
+
+  const {difficulty, setAll, setCorrect, flippedList} = props;
   
   function setDifficulty() {
 
