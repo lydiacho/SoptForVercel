@@ -4,11 +4,6 @@ import Card from '../components/Card';
 import { monkeyData } from '../constant/cardData';
 import { useState, useMemo } from 'react';
 
-//배열 섞는 함수
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-}
-
 
 export default function CardSectionLayout({all, setAll, correct, setCorrect, setSuccess}) {
 
@@ -18,6 +13,11 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
   const monkeyList = useMemo(() => {
     return arrayCard(monkeyData);
   }, [all])
+
+  //배열 섞는 함수
+  const shuffle = (array) => {
+    array.sort(() => Math.random() - 0.5);
+  }
 
   const monkeyComponentList = monkeyList.map((monkey) => 
     <Card 
