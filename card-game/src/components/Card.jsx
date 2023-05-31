@@ -22,7 +22,7 @@ export default function Card(props) {
   }, [correct]);
 
   // 카드 뒤집는 함수 
-  const flipCard = (e) => {
+  const handleFlipCard = (e) => {
     if (!flag) {return}                                     //Flag가 false면 진행 X
 
     let card = e.currentTarget;                             
@@ -57,7 +57,7 @@ export default function Card(props) {
   // id : Card의 key값을 다 다르게 부여하기 위해서 10을 더해서 idx를 만들었으니까 같은 id인지 비교하려면 일의자리수만 걸러줘야함 
   return (
     <Wrapper>  
-     <OneCard onClick={flipCard} id={idx%10}>
+     <OneCard onClick={handleFlipCard} id={idx%10}>
         <CardBack>🙈</CardBack>
         <CardImg src={src}/>
       </OneCard>
