@@ -59,7 +59,7 @@ export default function Card(props) {
     <Wrapper>  
      <OneCard onClick={handleFlipCard} id={idx%10}>
         <CardBack>🙈</CardBack>
-        <CardImg src={src}/>
+        <CardImg src={src} alt="카드 이미지"/>
       </OneCard>
     </Wrapper>
   )
