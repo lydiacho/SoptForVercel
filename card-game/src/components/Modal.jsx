@@ -16,7 +16,6 @@ const ModalBox = styled.section`
     position: fixed;
     width:100vw;
     height:100%;
-    z-index: 999;
 
     justify-content: center;
     align-items: center;
