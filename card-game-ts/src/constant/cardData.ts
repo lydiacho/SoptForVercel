@@ -8,10 +8,12 @@ import img7 from "../assets/숭7.png";
 import img8 from "../assets/숭8.png";
 import img9 from "../assets/숭9.png";
 
+interface monkeyDataInfo {
+    id: number;
+    src: any;
+}
 
-
-// 카드 상수 데이터
-const monkeyData = [
+const monkeyData : monkeyDataInfo[] = [
     {
         id:0,
         src:img1
@@ -50,4 +52,4 @@ const monkeyData = [
     }
 ];
 
-export { monkeyData };
+export { monkeyData, monkeyDataInfo };

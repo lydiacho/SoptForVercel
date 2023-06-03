@@ -2,15 +2,10 @@ import { useMemo, useState } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
-import { monkeyData } from "../constant/cardData";
+import { monkeyData, monkeyDataInfo } from "../constant/cardData";
 import { allState } from "../recoil/atom";
 import Button from "./Button";
 import Card from "./Card";
-
-interface monkeyDataInfo {
-    id: number;
-    src: any;
-}
 
 export default function CardSectionLayout() {
 
