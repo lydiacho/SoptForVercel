@@ -1,10 +1,10 @@
-import { useRecoilState } from 'recoil';
-import styled from 'styled-components';
-import { successState } from '../recoil/atom';
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
 
+import { successState } from "../recoil/atom";
 
 export default function Modal() {
-    const [isSuccess, setSuccess] = useRecoilState(successState);
+    const [isSuccess, setSuccess] = useRecoilState<boolean>(successState);
 
     return (
         <ModalBox isSuccess={isSuccess}>
@@ -16,7 +16,7 @@ export default function Modal() {
     )
 }
 
-const ModalBox = styled.section`
+const ModalBox = styled.section<{isSuccess:boolean}>`
     position: fixed;
     width:100vw;
     height:100%;
