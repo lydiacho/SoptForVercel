@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { allState } from '../recoil/atom';
 
 
-export default function CardSectionLayout({setSuccess}) {
+export default function CardSectionLayout() {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
   const DIFFICULTY = ["Easy", "Normal", "Hard"];  
@@ -46,8 +46,7 @@ export default function CardSectionLayout({setSuccess}) {
       key={id} 
       idx={id} 
       src={src} 
-      flippedList={flippedList} setFlippedList={setFlippedList} 
-      setSuccess={setSuccess}/>);
+      flippedList={flippedList} setFlippedList={setFlippedList} />);
   
   return (
     <MainSection>

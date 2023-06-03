@@ -1,15 +1,19 @@
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { successState } from '../recoil/atom';
 
 
-export default function Modal({isSuccess, setSuccess}) {
-  return (
-    <ModalBox isSuccess={isSuccess}>
-        <Content>
-            <ModalText>🎊축하합니당 숭숭박사시네용🎊</ModalText>
-            <ModalButton onClick={() => setSuccess(false)}>게임으로 돌아가기 </ModalButton>
-        </Content>
-    </ModalBox>
-  )
+export default function Modal() {
+    const [isSuccess, setSuccess] = useRecoilState(successState);
+
+    return (
+        <ModalBox isSuccess={isSuccess}>
+            <Content>
+                <ModalText>🎊축하합니당 숭숭박사시네용🎊</ModalText>
+                <ModalButton onClick={() => setSuccess(false)}>게임으로 돌아가기 </ModalButton>
+            </Content>
+        </ModalBox>
+    )
 }
 
 const ModalBox = styled.section`

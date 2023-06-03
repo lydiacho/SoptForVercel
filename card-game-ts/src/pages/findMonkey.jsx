@@ -1,19 +1,15 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import CardSectionLayout from '../components/CardSectionLayout';
 import HeaderLayout from '../components/HeaderLayout';
 import Modal from '../components/Modal';
 
 export default function FindMonkey() {
-    const [isSuccess, setSuccess] = useState(false);
 
   return (
     <MainBox>
         <HeaderLayout />
-        <CardSectionLayout 
-          setSuccess={setSuccess}/>
-        <Modal 
-          isSuccess={isSuccess} setSuccess={setSuccess}/>
+        <CardSectionLayout />
+        <Modal />
     </MainBox>
   )
 }
