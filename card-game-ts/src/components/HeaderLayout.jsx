@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { correctState } from '../recoil/atom';
+import { allState, correctState } from '../recoil/atom';
 
-export default function HeaderLayout({all}) {
+export default function HeaderLayout() {
 
   const correct = useRecoilValue(correctState);
+  const all = useRecoilValue(allState);
 
   const countRef = useRef();
 

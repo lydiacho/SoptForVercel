@@ -1,13 +1,14 @@
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { correctState } from '../recoil/atom';
+import { allState, correctState } from '../recoil/atom';
 import resetAll from '../utils/reset';
 
 
 export default function Button(props) {
 
-  const {difficulty, setAll, flippedList} = props;
+  const {difficulty,flippedList} = props;
   const setCorrect = useSetRecoilState(correctState);
+  const setAll = useSetRecoilState(allState);
   
   function setDifficulty() {
 

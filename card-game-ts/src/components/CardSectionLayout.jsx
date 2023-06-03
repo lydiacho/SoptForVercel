@@ -3,12 +3,16 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import { monkeyData } from '../constant/cardData';
 import { useState, useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
+import { allState } from '../recoil/atom';
 
 
-export default function CardSectionLayout({all, setAll, setSuccess}) {
+export default function CardSectionLayout({setSuccess}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
   const DIFFICULTY = ["Easy", "Normal", "Hard"];  
+
+  const all = useRecoilValue(allState);
   
 
   function shuffle (array) {
@@ -42,7 +46,6 @@ export default function CardSectionLayout({all, setAll, setSuccess}) {
       key={id} 
       idx={id} 
       src={src} 
-      all={all} 
       flippedList={flippedList} setFlippedList={setFlippedList} 
       setSuccess={setSuccess}/>);
   
@@ -50,7 +53,7 @@ export default function CardSectionLayout({all, setAll, setSuccess}) {
     <MainSection>
       <ButtonBox>
         {DIFFICULTY.map((el)=>
-          <Button key={el} difficulty={el} setAll={setAll} flippedList={flippedList}/>
+          <Button key={el} difficulty={el} flippedList={flippedList}/>
         )}
       </ButtonBox>
       <CardSection>
