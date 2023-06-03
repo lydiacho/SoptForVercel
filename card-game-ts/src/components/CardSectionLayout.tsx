@@ -1,28 +1,33 @@
-import styled from 'styled-components';
-import Button from '../components/Button';
-import Card from '../components/Card';
-import { monkeyData } from '../constant/cardData';
-import { useState, useMemo } from 'react';
-import { useRecoilValue } from 'recoil';
-import { allState } from '../recoil/atom';
+import { useMemo, useState } from "react";
+import { useRecoilValue } from "recoil";
+import styled from "styled-components";
 
+import { monkeyData } from "../constant/cardData";
+import { allState } from "../recoil/atom";
+import Button from "./Button";
+import Card from "./Card";
+
+interface monkeyDataInfo {
+    id: number;
+    src: any;
+}
 
 export default function CardSectionLayout() {
 
-  const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
-  const DIFFICULTY = ["Easy", "Normal", "Hard"];  
+  const [flippedList,setFlippedList] = useState<HTMLInputElement[]>([]);   // 완성된 카드 배열
+  const DIFFICULTY : string[] = ["Easy", "Normal", "Hard"];  
 
-  const all = useRecoilValue(allState);
+  const all : number = useRecoilValue<number>(allState);
   
 
-  function shuffle (array) {
+  function shuffle (array : monkeyDataInfo[]) : void {
     array.sort(() => Math.random() - 0.5);
   }
 
   //카드 배열하는 함수
-  function arrayCard (arr) {
+  function arrayCard (arr : monkeyDataInfo[]) : monkeyDataInfo[] {
     shuffle(arr);   
-    let tempArray = arr.slice(0,all);
+    let tempArray : monkeyDataInfo[] = arr.slice(0,all);
 
     for (let i=0; i<all; i++) {
       tempArray.push({
@@ -37,11 +42,11 @@ export default function CardSectionLayout() {
   }
 
   // 난이도가 변경될 때마다 카드 배열 재조합/재정렬
-  const monkeyList = useMemo(() => {
+  const monkeyList : monkeyDataInfo[] = useMemo<monkeyDataInfo[]>(() => {
     return arrayCard(monkeyData);
   }, [all])
 
-  const monkeyComponentList = monkeyList.map(({id,src}) => 
+  const monkeyComponentList : JSX.Element[] = monkeyList.map(({id,src} : monkeyDataInfo) => 
     <Card 
       key={id} 
       idx={id} 
