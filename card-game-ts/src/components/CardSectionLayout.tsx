@@ -14,7 +14,7 @@ interface monkeyDataInfo {
 
 export default function CardSectionLayout() {
 
-  const [flippedList,setFlippedList] = useState<HTMLInputElement[]>([]);   // 완성된 카드 배열
+  const [flippedList,setFlippedList] = useState<HTMLElement[]>([]);   // 완성된 카드 배열
   const DIFFICULTY : string[] = ["Easy", "Normal", "Hard"];  
 
   const all : number = useRecoilValue<number>(allState);
