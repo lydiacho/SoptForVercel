@@ -3,8 +3,6 @@ import FindMonkey from './pages/findMonkey';
 import ResetButton from './components/ResetButton';
 import GlobalStyle from "./styles/globalStyle";
 import theme from "./styles/theme";
-import { useRecoilState } from "recoil";
-import { correctState } from './recoil/atom';
 
 function App() {
 
