@@ -1,19 +1,26 @@
-import styled from 'styled-components';
-import resetAll from '../utils/reset';
+import { useEffect } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import styled from "styled-components";
 
-import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { allState, correctState, successState } from '../recoil/atom';
+import { allState, correctState, successState } from "../recoil/atom";
+import resetAll from "../utils/reset";
 
-let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
-let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
+let flag : boolean = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
+let flippingList : HTMLElement[] = [];  // 실시간으로 뒤집혀진 카드 배열 
 
-export default function Card(props) {
+interface CardProps {
+  idx: number;
+  src: any;
+  flippedList: HTMLElement[];
+  setFlippedList: React.Dispatch<React.SetStateAction<HTMLElement[]>>;
+}
+
+export default function Card(props : CardProps) {
 
   const {idx,src, flippedList, setFlippedList} = props;
-  const [correct, setCorrect] = useRecoilState(correctState);
-  const all = useRecoilValue(allState);
-  const setSuccess = useSetRecoilState(successState);
+  const [correct, setCorrect] = useRecoilState<number>(correctState);
+  const all : number = useRecoilValue<number>(allState);
+  const setSuccess = useSetRecoilState<boolean>(successState);
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
@@ -27,10 +34,10 @@ export default function Card(props) {
   }, [correct]);
 
   // 카드 뒤집는 함수 
-  const handleFlipCard = (e) => {
+  const handleFlipCard = (e : any) => {
     if (!flag) {return}                                     //Flag가 false면 진행 X
 
-    let card = e.currentTarget;                             
+    let card : HTMLElement = e.currentTarget;                             
     card.classList.add('flipped');                          // 뒤집기 
     flippingList.push(card);                                // 현재 뒤집힌 카드 배열에 push
 
