@@ -1,6 +1,9 @@
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { correctState } from '../recoil/atom';
 
-export default function ResetButton({setCorrect}) {
+export default function ResetButton() {
+  const setCorrect = useSetRecoilState(correctState)
   return (
     <ResetBtn onClick={()=>setCorrect(0)}>RESET</ResetBtn>
   )

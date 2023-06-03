@@ -5,7 +5,7 @@ import { monkeyData } from '../constant/cardData';
 import { useState, useMemo } from 'react';
 
 
-export default function CardSectionLayout({all, setAll, correct, setCorrect, setSuccess}) {
+export default function CardSectionLayout({all, setAll, setSuccess}) {
 
   const [flippedList,setFlippedList] = useState([]);   // 완성된 카드 배열
   const DIFFICULTY = ["Easy", "Normal", "Hard"];  
@@ -42,7 +42,6 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
       key={id} 
       idx={id} 
       src={src} 
-      correct={correct} setCorrect={setCorrect} 
       all={all} 
       flippedList={flippedList} setFlippedList={setFlippedList} 
       setSuccess={setSuccess}/>);
@@ -51,7 +50,7 @@ export default function CardSectionLayout({all, setAll, correct, setCorrect, set
     <MainSection>
       <ButtonBox>
         {DIFFICULTY.map((el)=>
-          <Button key={el} difficulty={el} setAll={setAll} setCorrect={setCorrect} flippedList={flippedList}/>
+          <Button key={el} difficulty={el} setAll={setAll} flippedList={flippedList}/>
         )}
       </ButtonBox>
       <CardSection>

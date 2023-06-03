@@ -7,13 +7,12 @@ import { useRecoilState } from "recoil";
 import { correctState } from './recoil/atom';
 
 function App() {
-  const [correct, setCorrect] = useRecoilState(correctState); 
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <FindMonkey correct={correct} setCorrect={setCorrect} />
-      <ResetButton setCorrect={setCorrect}/>
+      <FindMonkey />
+      <ResetButton />
     </ThemeProvider>
   )
 }

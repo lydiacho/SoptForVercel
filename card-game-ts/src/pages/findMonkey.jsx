@@ -3,18 +3,19 @@ import { useState } from 'react';
 import CardSectionLayout from '../components/CardSectionLayout';
 import HeaderLayout from '../components/HeaderLayout';
 import Modal from '../components/Modal';
+import { useRecoilState } from 'recoil';
+import { correctState } from '../recoil/atom';
 
-export default function FindMonkey({correct, setCorrect}) {
+export default function FindMonkey() {
     const [all, setAll] = useState(5);
     const [isSuccess, setSuccess] = useState(false);
 
   return (
     <MainBox>
         <HeaderLayout 
-          correct={correct} all={all}/>
+          all={all}/>
         <CardSectionLayout 
           all={all} setAll={setAll} 
-          correct={correct} setCorrect={setCorrect} 
           setSuccess={setSuccess}/>
         <Modal 
           isSuccess={isSuccess} setSuccess={setSuccess}/>

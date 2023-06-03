@@ -2,13 +2,16 @@ import styled from 'styled-components';
 import resetAll from '../utils/reset';
 
 import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { correctState } from '../recoil/atom';
 
 let flag = true;        // 카드 선택 제어 (2개선택시 추가 선택 제한)
 let flippingList = [];  // 실시간으로 뒤집혀진 카드 배열 
 
 export default function Card(props) {
 
-  const {idx,src, correct, setCorrect, all, flippedList, setFlippedList, setSuccess} = props;
+  const {idx,src, all, flippedList, setFlippedList, setSuccess} = props;
+  const [correct, setCorrect] = useRecoilState(correctState);
 
   // reset 버튼 클릭 시 카드 초기화
   if (correct === 0) {
