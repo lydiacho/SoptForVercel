@@ -1,14 +1,15 @@
-import { useEffect, useRef } from 'react';
-import { useRecoilValue } from 'recoil';
-import styled from 'styled-components';
-import { allState, correctState } from '../recoil/atom';
+import { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
+import styled from "styled-components";
+
+import { allState, correctState } from "../recoil/atom";
 
 export default function HeaderLayout() {
 
-  const correct = useRecoilValue(correctState);
-  const all = useRecoilValue(allState);
+  const correct = useRecoilValue<number>(correctState);
+  const all = useRecoilValue<number>(allState);
 
-  const countRef = useRef();
+  const countRef = useRef<any>();
 
   // 카드 일치 시 correct 값이 변하면, 점수판에 0.5초동안 애니메이션 부여
   useEffect(() => {
