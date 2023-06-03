@@ -34,10 +34,12 @@ const GameHeader = styled.header`
   width: 100%;
   padding:2rem;
 
-  background-color: ${({ theme }) => theme.colors.skyBlue};
+  background-image: url('src/assets/헤더숭.png');
 
   color : ${({ theme }) => theme.colors.black};
   font-size: 6rem;
+
+  border-bottom: 1rem ridge ${({ theme }) => theme.colors.yellow};;
 
 `;
 

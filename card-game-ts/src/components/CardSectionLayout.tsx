@@ -69,7 +69,7 @@ const MainSection = styled.section`
 
   height: 100%;
 
-  background-color:${({ theme }) => theme.colors.lightPurple};
+  background-image: url('src/assets/바나나배경.png');
   
 `
 

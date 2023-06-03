@@ -16,15 +16,15 @@ const ResetBtn = styled.button`
   top: 0;
   left: 100%;
 
-  margin: 3rem;
+  margin: 4rem 3rem 3rem 3rem;
   padding: 1rem 2rem;
 
   background-color: white;
   border: 0px;
   border-radius: 1rem;
-  box-shadow: 0.5rem 0.5rem 0.5rem ${({ theme }) => theme.colors.shadowBlue};
+  box-shadow: 0.5rem 0.5rem 0.5rem ${({ theme }) => theme.colors.yellow};
 
-  font-size: 4rem;
+  font-size: 3.5rem;
 
   z-index: 1;
 `

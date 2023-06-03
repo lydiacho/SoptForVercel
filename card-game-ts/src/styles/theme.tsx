@@ -6,7 +6,7 @@ const colors = {
     lightPink: "#FCC8F8",
     lightPurple: "#f8dcff",
     purple: "#9900F0",
-    lightYellow: "#F3F798",
+    yellow: "#86680d",
     darkGray: "#4e4e4e",
     backgroundBlack: "#00000060"
   };
