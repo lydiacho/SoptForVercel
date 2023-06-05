@@ -1,12 +1,12 @@
-import img1 from "../assets/숭1.png";
-import img2 from "../assets/숭2.png";
-import img3 from "../assets/숭3.png";
-import img4 from "../assets/숭4.png";
-import img5 from "../assets/숭5.png";
-import img6 from "../assets/숭6.png";
-import img7 from "../assets/숭7.png";
-import img8 from "../assets/숭8.png";
-import img9 from "../assets/숭9.png";
+import img1 from "/숭1.png";
+import img2 from "/숭2.png";
+import img3 from "/숭3.png";
+import img4 from "/숭4.png";
+import img5 from "/숭5.png";
+import img6 from "/숭6.png";
+import img7 from "/숭7.png";
+import img8 from "/숭8.png";
+import img9 from "/숭9.png";
 
 interface monkeyDataInfo {
     id: number;
